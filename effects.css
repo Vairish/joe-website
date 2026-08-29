@@ -87,6 +87,7 @@ body { overflow-x: hidden; }
   overflow: hidden;
   box-shadow: none;
   border-radius: 0;
+  padding-bottom: 16px;
   isolation: isolate;
 }
 
@@ -114,6 +115,39 @@ body { overflow-x: hidden; }
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, #000);
 }
+
+.hero-frame {
+  --frame-colour: rgba(245, 242, 234, .28);
+  position: absolute;
+  z-index: 4;
+  inset: 22px 0 14px;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  opacity: .78;
+  transition: width .7s cubic-bezier(.2, .75, .2, 1), height .7s cubic-bezier(.2, .75, .2, 1), opacity .3s;
+}
+
+.corner-tl { top: 0; left: 0; border-top: 1px solid var(--frame-colour); border-left: 1px solid var(--frame-colour); }
+.corner-tr { top: 0; right: 0; border-top: 1px solid var(--frame-colour); border-right: 1px solid var(--frame-colour); }
+.corner-bl { bottom: 0; left: 0; border-bottom: 1px solid var(--frame-colour); border-left: 1px solid var(--frame-colour); }
+.corner-br { right: 0; bottom: 0; border-right: 1px solid var(--frame-colour); border-bottom: 1px solid var(--frame-colour); }
+
+.banner:hover .corner { width: 52px; height: 52px; opacity: 1; }
+
+.frame-label {
+  position: absolute;
+  bottom: -9px;
+  color: rgba(245, 242, 234, .34);
+  font: 600 8px ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .15em;
+}
+.frame-label-left { left: 0; }
+.frame-label-right { right: 0; }
 
 .banner-caption { display: none; }
 
@@ -197,8 +231,11 @@ body { overflow-x: hidden; }
   #main-nav a { padding: 13px 0; border-radius: 0; }
   #main-nav a.active { color: var(--accent); }
   .nav-indicator { display: none; }
-  .banner { width: min(calc(100% - 28px), 1180px); margin-top: 12px; }
+  .banner { width: min(calc(100% - 28px), 1180px); margin-top: 12px; padding-bottom: 16px; }
   .banner img { width: 100%; transform: none; mask-image: linear-gradient(to bottom, #000 0, #000 93%, transparent 100%); }
+  .hero-frame { inset: 8px 0 8px; }
+  .corner { width: 20px; height: 20px; }
+  .frame-label { display: none; }
   .welcome { padding-top: 65px; }
 }
 
