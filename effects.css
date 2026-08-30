@@ -2,8 +2,8 @@
 .reveal.visible { opacity: 1; transform: none; }
 .hero-logo.reveal { transform: translate(-50%,calc(-50% + 18px)); }
 .hero-logo.reveal.visible { transform: translate(-50%,-50%); }
-.polaroid.reveal { transform: rotate(4.5deg) translateY(18px); }
-.polaroid.reveal.visible { transform: rotate(4.5deg); }
+.polaroid-stack.reveal { transform: translateY(18px); }
+.polaroid-stack.reveal.visible { transform: none; }
 .scroll-cue { animation: cue 2.2s ease-in-out infinite; }
 @keyframes cue { 50% { translate: 0 5px; } }
 .waveform i { animation: wave 1.7s ease-in-out infinite alternate; }
@@ -12,7 +12,6 @@
 .waveform i:nth-child(5n) { animation-delay: -1s; }
 @keyframes wave { to { transform: scaleY(.42); opacity: .58; } }
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .hero-logo.reveal, .polaroid.reveal { opacity: 1; transform: none; }
+  .reveal, .hero-logo.reveal, .polaroid-stack.reveal { opacity: 1; transform: none; }
   .hero-logo.reveal { transform: translate(-50%,-50%); }
-  .polaroid.reveal { transform: rotate(4.5deg); }
 }
