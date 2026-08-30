@@ -5,7 +5,7 @@ the site reads what's there and nothing needs building at the repo level.
 
 | Section | Content lives in | Listing | Made by |
 |---|---|---|---|
-| Photography | `images/_web/` | `images/_web/photos.js` | `make-web.bat`, in your photo folder |
+| Photography | `images/` | `images/photos.js` | `make-web.bat`, in your photo folder |
 | Music | `music/` | `music/tracks.js` | `update-lists.bat`, here |
 | Notes | `notes/` | `notes/notes.js` | `update-lists.bat`, here |
 
@@ -19,11 +19,11 @@ repo. `make-web.mjs` and `make-web.bat` sit in there with them.
 ```
 1. Add or rename photos in your photo folder
 2. Double-click make-web.bat
-3. Copy the _web folder it makes into images\, replacing images\_web
+3. Copy the images folder it makes into the repo, replacing the one there
 4. Commit and push
 ```
 
-The `_web` folder contains everything the site needs: the resized images *and*
+The `images` folder contains everything the site needs: the resized images *and*
 the `photos.js` listing. Copying it across is the whole publish step.
 
 Originals are never modified. Only changed photos are reprocessed, so repeat
@@ -106,8 +106,18 @@ including straight off your desktop.
 
 These files are generated. Don't edit them by hand.
 
+## Never start a folder name with an underscore
+
+GitHub Pages runs Jekyll, and Jekyll silently drops any directory whose name
+begins with `_`. The images folder was briefly called `_web`, which produced a
+site that worked perfectly on this machine and showed no photographs at all
+online — no error, just nothing.
+
+`.nojekyll` in the repo root now disables Jekyll entirely and is the real fix.
+Leave it there. But avoid underscore-prefixed folders anyway.
+
 ## Git
 
-`images/_web/` is committed — it's what the site serves. Full-resolution
+`images/` is committed — it's what the site serves. Full-resolution
 originals are not in this repo at all; they live in your photo folder, and
 git is not backing them up. Keep your own copies.

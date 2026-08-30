@@ -1,8 +1,13 @@
 node_modules/
 
 # Full-resolution originals live outside this repo entirely, in your own
-# photo folder. This repo only ever holds the web-sized copies in
-# images/_web/, which is what the site serves.
+# photo folder. This repo only holds the web-sized copies in images/,
+# which is what the site serves.
 #
-# To publish photos: run make-web.bat in your photo folder, then copy the
-# _web folder it produces into images/, replacing what's there.
+# To publish photos: run make-web.bat in your photo folder (copy it there
+# from photo-tools/), then copy the images folder it makes into this repo,
+# replacing the one here.
+#
+# Do NOT rename images/ to anything starting with an underscore. GitHub
+# Pages runs Jekyll, which silently drops such folders — the site then works
+# locally and shows nothing online. .nojekyll guards against this; keep it.

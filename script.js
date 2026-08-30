@@ -49,7 +49,7 @@ sections.forEach(section => sectionObserver.observe(section));
 /* ---------------------------------------------------------------
    Content comes from three generated listings, each living beside the
    files it describes:
-     images/_web/photos.js  -> window.PHOTOS   (made in the photo folder)
+     images/photos.js       -> window.PHOTOS   (made in the photo folder)
      music/tracks.js        -> window.TRACKS   (update-lists.mjs)
      notes/notes.js         -> window.NOTES    (update-lists.mjs)
    A missing listing degrades to an empty section rather than an error.
@@ -108,7 +108,7 @@ const photoTile = (photo, index) => {
 const photoGrid = $('#photo-grid');
 if (photoGrid) {
   if (!DATA.photos.length) {
-    photoGrid.append(empty('Run make-web in your photo folder, then copy _web into images/.'));
+    photoGrid.append(empty('Run make-web in your photo folder, then copy the images folder in.'));
   } else {
     const pageCount = Math.ceil(DATA.photos.length / PER_PAGE);
 

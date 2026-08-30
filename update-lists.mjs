@@ -8,7 +8,7 @@
  *   music/tracks.js   from the audio files in music/
  *   notes/notes.js    from the markdown files in notes/
  *
- * Photos are NOT handled here. They come from images/_web/photos.js, which is
+ * Photos are NOT handled here. They come from images/photos.js, which is
  * produced by make-web.mjs over in your full-resolution photo folder and
  * copied in wholesale.
  *
@@ -202,11 +202,11 @@ if (existsSync(join(ROOT, 'notes'))) write('notes/notes.js', 'NOTES', notes);
 console.log(`music/tracks.js — ${tracks.length} track(s)`);
 console.log(`notes/notes.js  — ${notes.length} note(s)`);
 
-const photos = join(ROOT, 'images/_web/photos.js');
+const photos = join(ROOT, 'images/photos.js');
 if (existsSync(photos)) {
   const count = (readFileSync(photos, 'utf8').match(/"title":/g) || []).length;
-  console.log(`images/_web/photos.js — ${count} photo(s) (built in your photo folder)`);
+  console.log(`images/photos.js — ${count} photo(s) (built in your photo folder)`);
 } else {
-  console.log('images/_web/photos.js — MISSING. Run make-web.bat in your photo folder');
-  console.log('  and copy the _web folder into images/.');
+  console.log('images/photos.js — MISSING. Run make-web.bat in your photo folder');
+  console.log('  and copy the images folder into the repo.');
 }
