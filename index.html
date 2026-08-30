@@ -4,96 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Joe Kiernan's personal website — photography, music, software and notes.">
-  <meta name="theme-color" content="#111111">
-  <title>Joe Kiernan</title>
+  <meta name="theme-color" content="#050505">
+  <title>Joe Kiernan — Mostly Harmless</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="effects.css">
 </head>
 <body>
-  <div class="progress" aria-hidden="true"><span></span></div>
   <header class="site-header">
-    <a class="logo" href="#home"><span class="logo-mark">JK</span><span class="logo-name">Joe Kiernan<b>.</b></span></a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><b class="sr-only">Menu</b></button>
+    <a class="wordmark" href="#home"><span></span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><b class="sr-only">Menu</b>
+    </button>
     <nav id="main-nav" aria-label="Main navigation">
-      <span class="nav-indicator" aria-hidden="true"></span>
-      <a href="#photography">Photography</a><a href="#music">Music</a><a href="#software">Software</a><a href="#blog">Blog</a>
+      <a href="#photography">Photography</a>
+      <a href="#music">Music</a>
+      <a href="#software">Software</a>
+      <a href="#notes">Notes</a>
     </nav>
-    <span class="header-time" id="header-time">IRE&nbsp;&nbsp;00:00</span>
   </header>
 
   <main id="home">
-    <section class="banner reveal" aria-label="Joe Kiernan banner">
-      <img src="assets/banner.png" alt="Joe Kiernan, mostly harmless">
-      <div class="hero-frame" aria-hidden="true">
-        <i class="corner corner-tl"></i><i class="corner corner-tr"></i>
-        <i class="corner corner-bl"></i><i class="corner corner-br"></i>
-        <span class="frame-label frame-label-left">JK / PERSONAL ARCHIVE</span>
-        <span class="frame-label frame-label-right">FRAME 001</span>
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-background" aria-hidden="true">
+        <img src="assets/hero-coast.webp" alt="">
       </div>
-      <span class="banner-caption">Move to explore</span>
-    </section>
+      <div class="hero-shade" aria-hidden="true"></div>
 
-    <section class="welcome wrap reveal">
-      <div><p class="kicker">Hello, I’m Joe.</p><h1>This is where I keep<br>the things I make.</h1></div>
-      <div class="welcome-copy"><p>I take pictures, build software and make music. Sometimes I write about those things too.</p><p>This website is currently a work in progress.</p><a href="#photography">Have a look around <span>↓</span></a></div>
+      <div class="hero-logo reveal">
+        <img src="assets/Superluxe2.png" alt="Joe Kiernan — mostly harmless">
+      </div>
+
+      <figure class="polaroid reveal">
+        <span class="tape" aria-hidden="true"></span>
+        <img src="assets/Mesquare.png" alt="Black-and-white portrait of Joe Kiernan">
+      </figure>
+
+      <a class="scroll-cue" href="#photography" aria-label="Scroll to photography"><span>↓</span></a>
     </section>
 
     <section id="photography" class="section photography-section">
-      <div class="wrap">
-        <header class="section-header reveal"><div><span class="number">01</span><h2>Photography</h2></div><p>Pictures I’ve taken and wanted to keep.</p></header>
-        <div class="photo-grid">
-          <button class="photo-card photo-large reveal" data-image="assets/meblackbrighterpawthinner.png" data-caption="Self portrait"><img src="assets/meblackbrighterpawthinner.png" alt="Wide black and white self portrait"><span>Self portrait</span></button>
-          <button class="photo-card reveal" data-image="assets/Mesquare.png" data-caption="Portrait study"><img src="assets/Mesquare.png" alt="Black and white portrait"><span>Portrait study</span></button>
-          <button class="photo-card reveal" data-image="assets/me4brighter.jpg" data-caption="Studio portrait"><img src="assets/me4brighter.jpg" alt="Black and white studio portrait"><span>Studio portrait</span></button>
-        </div>
-        <p class="section-note reveal">More photographs can be added here as individual stories or simple galleries.</p>
+      <header class="section-heading reveal">
+        <div><span>01</span><h2>Photography</h2></div>
+        <p>Pictures I’ve taken and wanted to keep.</p>
+      </header>
+      <div class="photo-grid">
+        <button class="photo photo-wide reveal" type="button" data-image="assets/hero-coast.webp" data-caption="Atlantic weather">
+          <img src="assets/hero-coast.webp" alt="Waves breaking against a rocky coast with seabirds overhead">
+          <span><b>Atlantic weather</b><small>From the camera roll</small></span>
+        </button>
+        <button class="photo reveal" type="button" data-image="assets/me4brighter.jpg" data-caption="Studio portrait">
+          <img src="assets/me4brighter.jpg" alt="Black-and-white studio portrait">
+          <span><b>Studio portrait</b><small>Black &amp; white</small></span>
+        </button>
+        <button class="photo reveal" type="button" data-image="assets/Mesquare.png" data-caption="Portrait study">
+          <img src="assets/Mesquare.png" alt="Black-and-white portrait study">
+          <span><b>Portrait study</b><small>Self portrait</small></span>
+        </button>
       </div>
     </section>
 
     <section id="music" class="section music-section">
-      <div class="wrap">
-        <header class="section-header reveal"><div><span class="number">02</span><h2>Music</h2></div><p>Songs, demos and sounds made with too many pedals.</p></header>
-        <div class="music-layout">
-          <div class="album-art reveal"><img src="assets/Superluxe2.png" alt="Joe Kiernan wordmark"><span>RECENT RECORDINGS</span></div>
-          <div class="track-list reveal">
-            <div class="track"><button type="button" disabled>▶</button><div><strong>Your first track</strong><span>Add an MP3 to make this playable</span></div><time>—:—</time></div>
-            <div class="track"><button type="button" disabled>▶</button><div><strong>Another unfinished thing</strong><span>Demo / guitar / questionable decisions</span></div><time>—:—</time></div>
-            <div class="track"><button type="button" disabled>▶</button><div><strong>Voice memo no. 47</strong><span>The promising eight seconds</span></div><time>—:—</time></div>
-            <p>The player is ready to connect to your own audio files, Bandcamp or SoundCloud.</p>
-          </div>
+      <header class="section-heading reveal">
+        <div><span>02</span><h2>Music</h2></div>
+        <p>Songs, demos and sounds made with too many pedals.</p>
+      </header>
+      <div class="music-stage">
+        <div class="waveform reveal" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="music-copy reveal">
+          <p>There is no<br>final pedalboard.</p>
+          <span>Acceptance, patch cables and the illusion of completion.</span>
+        </div>
+        <div class="track-list reveal">
+          <div class="track"><button type="button" disabled>▶</button><span><b>Your first track</b><small>Demo / guitar / questionable decisions</small></span><time>—:—</time></div>
+          <div class="track"><button type="button" disabled>▶</button><span><b>Voice memo no. 47</b><small>The promising eight seconds</small></span><time>—:—</time></div>
+          <div class="track"><button type="button" disabled>▶</button><span><b>Another unfinished thing</b><small>Work in progress</small></span><time>—:—</time></div>
         </div>
       </div>
     </section>
 
     <section id="software" class="section software-section">
-      <div class="wrap">
-        <header class="section-header reveal"><div><span class="number">03</span><h2>Software</h2></div><p>Useful things I’ve built to solve real problems.</p></header>
-        <div class="project-grid">
-          <article class="project reveal"><div class="project-top"><span>Desktop app</span><b>01</b></div><h3>Abuse Voicemail<br>Transcriber</h3><p>Local AI transcription and analysis for large collections of voicemail greetings.</p><div class="tags"><span>Electron</span><span>Whisper</span><span>Node.js</span></div><a href="#" aria-label="Read more about the Abuse Voicemail Transcriber">Read more <b>↗</b></a></article>
-          <article class="project reveal"><div class="project-top"><span>Automation</span><b>02</b></div><h3>Legal Automation<br>System</h3><p>Tools that turn repetitive compliance work into structured, trackable processes.</p><div class="tags"><span>Python</span><span>AWS</span><span>Zendesk</span></div><a href="#" aria-label="Read more about the Legal Automation System">Read more <b>↗</b></a></article>
-          <article class="project reveal"><div class="project-top"><span>Support tools</span><b>03</b></div><h3>Quick Actions<br>Toolkit</h3><p>Focused tools for faster investigations and safer account actions.</p><div class="tags"><span>JavaScript</span><span>APIs</span><span>Slack</span></div><a href="#" aria-label="Read more about the Quick Actions Toolkit">Read more <b>↗</b></a></article>
-        </div>
+      <header class="section-heading reveal">
+        <div><span>03</span><h2>Software</h2></div>
+        <p>Useful things I’ve built to solve real problems.</p>
+      </header>
+      <div class="project-list">
+        <article class="project reveal"><span>01</span><div><small>Desktop app</small><h3>Abuse Voicemail Transcriber</h3><p>Local AI transcription and analysis for large collections of voicemail greetings.</p></div><p class="tech">Electron / Whisper / Node.js</p><a href="#" aria-label="Read about Abuse Voicemail Transcriber">↗</a></article>
+        <article class="project reveal"><span>02</span><div><small>Automation</small><h3>Legal Automation System</h3><p>Tools that turn repetitive compliance work into structured, trackable processes.</p></div><p class="tech">Python / AWS / Zendesk</p><a href="#" aria-label="Read about Legal Automation System">↗</a></article>
+        <article class="project reveal"><span>03</span><div><small>Support tools</small><h3>Quick Actions Toolkit</h3><p>Focused tools for faster investigations and safer account actions.</p></div><p class="tech">JavaScript / APIs / Slack</p><a href="#" aria-label="Read about Quick Actions Toolkit">↗</a></article>
       </div>
     </section>
 
-    <section id="blog" class="section blog-section">
-      <div class="wrap">
-        <header class="section-header reveal"><div><span class="number">04</span><h2>From the blog</h2></div><p>Notes about making things and figuring things out.</p></header>
-        <div class="post-list">
-          <article class="post reveal"><time datetime="2026-08-29">29 August 2026</time><div><span>Personal</span><h3>A home for unfinished things</h3><p>Why I wanted a personal website again, and what I plan to put here.</p></div><a href="#" aria-label="Read A home for unfinished things">↗</a></article>
-          <article class="post reveal"><time>Draft</time><div><span>Software</span><h3>Build for the person doing the work</h3><p>A few lessons from making internal tools people actually use.</p></div><a href="#" aria-label="Read Build for the person doing the work">↗</a></article>
-          <article class="post reveal"><time>Draft</time><div><span>Music</span><h3>There is no final pedalboard</h3><p>Acceptance, patch cables and the illusion of completion.</p></div><a href="#" aria-label="Read There is no final pedalboard">↗</a></article>
-        </div>
+    <section id="notes" class="section notes-section">
+      <header class="section-heading reveal">
+        <div><span>04</span><h2>Notes</h2></div>
+        <p>Occasional thoughts about making things and figuring things out.</p>
+      </header>
+      <div class="note-list">
+        <article class="note reveal"><time datetime="2026-08-29">29.08.26</time><div><small>Personal</small><h3>A home for unfinished things</h3><p>Why I wanted a personal website again, and what I plan to put here.</p></div><a href="#" aria-label="Read A home for unfinished things">↗</a></article>
+        <article class="note reveal"><time>Draft</time><div><small>Software</small><h3>Build for the person doing the work</h3><p>A few lessons from making internal tools people actually use.</p></div><a href="#" aria-label="Read Build for the person doing the work">↗</a></article>
+        <article class="note reveal"><time>Draft</time><div><small>Music</small><h3>There is no final pedalboard</h3><p>Acceptance, patch cables and the illusion of completion.</p></div><a href="#" aria-label="Read There is no final pedalboard">↗</a></article>
       </div>
     </section>
 
-    <section class="contact wrap reveal">
-      <div><p class="kicker">Say hello</p><h2>Want to get in touch?</h2></div><a href="mailto:hello@joekiernan.com">hello@joekiernan.com <span>↗</span></a>
+    <section class="elsewhere reveal" aria-label="Elsewhere online">
+      <p>Elsewhere on the internet</p>
+      <nav><a href="#">Instagram ↗</a><a href="#">GitHub ↗</a><a href="#">YouTube ↗</a><a href="mailto:hello@joekiernan.com">Email ↗</a></nav>
     </section>
   </main>
 
-  <footer><div class="wrap"><p>© <span id="year"></span> Joe Kiernan. Mostly harmless.</p><div><a href="#">Instagram</a><a href="#">GitHub</a><a href="#">YouTube</a></div><a href="#home">Back to top ↑</a></div></footer>
-  <dialog id="lightbox"><button type="button" aria-label="Close photograph">×</button><img alt=""><p></p></dialog>
+  <footer><span>© <b id="year"></b> Joe Kiernan</span><span>Mostly harmless.</span><a href="#home">Back to top ↑</a></footer>
+
+  <dialog id="lightbox">
+    <button type="button" aria-label="Close photograph">×</button>
+    <img alt="">
+    <p></p>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>
