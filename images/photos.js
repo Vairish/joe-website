@@ -15,8 +15,8 @@ window.PHOTOS = [
     "width": 2080,
     "height": 3120,
     "shape": "portrait",
-    "grid": "images/02 - The Véro Dodat Gallery - Paris -grid.webp",
-    "full": "images/02 - The Véro Dodat Gallery - Paris -full.webp"
+    "grid": "images/02 - The Véro Dodat Gallery - Paris-grid.webp",
+    "full": "images/02 - The Véro Dodat Gallery - Paris-full.webp"
   },
   {
     "title": "The Moon",
@@ -96,8 +96,8 @@ window.PHOTOS = [
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/12 - The Obelisk - Killiney Hill -grid.webp",
-    "full": "images/12 - The Obelisk - Killiney Hill -full.webp"
+    "grid": "images/12 - The Obelisk - Killiney Hill-grid.webp",
+    "full": "images/12 - The Obelisk - Killiney Hill-full.webp"
   },
   {
     "title": "Mama & Son",
@@ -105,8 +105,8 @@ window.PHOTOS = [
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/13 - Mama & Son - Dublin Zoo-grid.webp",
-    "full": "images/13 - Mama & Son - Dublin Zoo-full.webp"
+    "grid": "images/13 - Mama and Son - Dublin Zoo-grid.webp",
+    "full": "images/13 - Mama and Son - Dublin Zoo-full.webp"
   },
   {
     "title": "Mama & Son",
@@ -114,8 +114,8 @@ window.PHOTOS = [
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/14 - Mama & Son - Dublin Zoo-grid.webp",
-    "full": "images/14 - Mama & Son - Dublin Zoo-full.webp"
+    "grid": "images/14 - Mama and Son - Dublin Zoo-grid.webp",
+    "full": "images/14 - Mama and Son - Dublin Zoo-full.webp"
   },
   {
     "title": "Big Stretch",
@@ -177,8 +177,8 @@ window.PHOTOS = [
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/21 - The Jungle’s Smallest Lookout. - Dublin Zoo -grid.webp",
-    "full": "images/21 - The Jungle’s Smallest Lookout. - Dublin Zoo -full.webp"
+    "grid": "images/21 - The Jungle's Smallest Lookout. - Dublin Zoo-grid.webp",
+    "full": "images/21 - The Jungle's Smallest Lookout. - Dublin Zoo-full.webp"
   },
   {
     "title": "Oh Ship!",
