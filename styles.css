@@ -55,22 +55,39 @@ img { display: block; max-width: 100%; }
 .hero-copy { position: absolute; left: clamp(28px,3.5vw,58px); bottom: clamp(78px,11vh,135px); font-size: clamp(13px,1.05vw,17px); line-height: 1.55; }
 .hero-copy p { margin: 0 0 25px; }
 .polaroid-stack { position: absolute; z-index: 4; right: clamp(58px,5.2vw,78px); bottom: clamp(38px,4.8vh,56px); width: clamp(158px,15.75vw,263px); }
-.polaroid { width: 100%; margin: 0; padding: 10px 10px 36px; background: #eeeae2; box-shadow: 0 14px 38px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.25); transition: transform .45s cubic-bezier(.2,.72,.2,1); }
-.polaroid-front { position: relative; z-index: 3; transform: rotate(4.5deg); box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.28); }
-.tape { position: absolute; z-index: 4; top: -13px; left: 50%; width: 44%; height: 26px; transform: translateX(-50%) rotate(2deg); background: linear-gradient(90deg, rgba(189,174,134,.78), rgba(216,205,170,.88), rgba(184,168,127,.78)); box-shadow: 0 1px 2px rgba(0,0,0,.16); opacity: .9; }
-.polaroid-middle, .polaroid-back { position: absolute; }
-.polaroid-middle { z-index: 2; top: 24%; left: 12%; transform: rotate(9deg); background: #e7e1d7; }
-.polaroid-back { z-index: 1; top: 43%; left: -19%; transform: rotate(-8deg); background: #dcd6cb; }
-.polaroid img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; filter: grayscale(1) contrast(1.08); }
-.polaroid-middle img { object-position: 50% 52%; filter: grayscale(1) brightness(.78) contrast(1.18); }
-.polaroid-back img { object-position: 48% 50%; filter: grayscale(1) brightness(.82) contrast(1.16); }
+.polaroid { width: 100%; margin: 0; padding: 10px 10px 36px; background: #eeeae2; box-shadow: 0 14px 38px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.25); }
+.polaroid-sizer { position: relative; visibility: hidden; box-shadow: none; }
+.polaroid-sizer i { display: block; width: 100%; aspect-ratio: 1 / 1.08; }
+.polaroid img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; }
+
+/* card = one photograph (identity: framing + its own bit of tape) */
+.card { position: absolute; top: 0; left: 0; width: 100%; transition: transform .5s cubic-bezier(.2,.72,.2,1), background-color .5s ease, box-shadow .5s ease; }
+.card img { transition: filter .5s ease; }
+.p-moon img { object-position: 50% 52%; }
+.p-swans img { object-position: 48% 50%; }
+
+/* slot = a position in the pile (depth: z-order, offset, dimming) */
+.slot-1 { z-index: 3; transform: translateY(var(--lift,0)) rotate(4.5deg); background: #eeeae2; box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.28); }
+.slot-2 { z-index: 2; transform: translate(12%,24%) translateY(var(--lift,0)) rotate(9deg); background: #e7e1d7; }
+.slot-3 { z-index: 1; transform: translate(-19%,43%) translateY(var(--lift,0)) rotate(-8deg); background: #dcd6cb; }
+.slot-1 img { filter: grayscale(1) contrast(1.08); }
+.slot-2 img { filter: grayscale(1) brightness(.84) contrast(1.16); }
+.slot-3 img { filter: grayscale(1) brightness(.72) contrast(1.2); }
+
+.tape { position: absolute; z-index: 4; top: -13px; left: 50%; width: 44%; height: 26px; background: linear-gradient(90deg, rgba(189,174,134,.78), rgba(216,205,170,.88), rgba(184,168,127,.78)); box-shadow: 0 1px 2px rgba(0,0,0,.16); opacity: .9; }
+.p-self .tape { transform: translateX(-50%) rotate(2deg); }
+.p-moon .tape { left: 44%; width: 38%; transform: translateX(-50%) rotate(-3.5deg); }
+.p-swans .tape { left: 57%; width: 41%; transform: translateX(-50%) rotate(4.5deg); }
+
+.card-hit { position: absolute; z-index: 5; inset: 0; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.slot-1 .card-hit { cursor: default; }
+.card-hit:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 4px; }
+.card:hover { --lift: -7px; }
+.slot-1:hover { --lift: -4px; }
 .polaroid figcaption { position: absolute; right: 11px; bottom: 2px; left: 11px; overflow: hidden; color: #17212b; font-family: "Marker Mark", "Segoe Script", "Bradley Hand", "Brush Script MT", cursive; font-size: clamp(15px, 2vw, 30px); font-synthesis: none; font-weight: 400; letter-spacing: .01em; line-height: 1.1; mix-blend-mode: multiply; opacity: .82; text-align: center; text-rendering: geometricPrecision; white-space: nowrap; }
-.polaroid-front figcaption { transform: rotate(-1deg); }
-.polaroid-middle figcaption { transform: rotate(1.2deg); }
-.polaroid-back figcaption { transform: rotate(-.7deg); }
-.polaroid-stack:hover .polaroid-front { transform: translateY(-4px) rotate(4.5deg); }
-.polaroid-stack:hover .polaroid-middle { transform: translate(5px,5px) rotate(10deg); }
-.polaroid-stack:hover .polaroid-back { transform: translate(-6px,8px) rotate(-9deg); }
+.p-self figcaption { transform: rotate(-1deg); }
+.p-moon figcaption { transform: rotate(1.2deg); }
+.p-swans figcaption { transform: rotate(-.7deg); }
 .scroll-cue { position: absolute; left: 50%; bottom: 30px; display: grid; place-items: center; width: 44px; height: 30px; margin-left: -22px; color: rgba(241,238,231,.62); filter: drop-shadow(0 1px 4px rgba(0,0,0,.6)); transition: color .3s; }
 .scroll-cue svg { width: 22px; height: 12px; }
 .scroll-cue:hover { color: var(--white); }
@@ -167,8 +184,8 @@ footer a { justify-self: end; }
   .hero-copy { bottom: 80px; }
   .polaroid-stack { right: 44px; bottom: 48px; width: clamp(126px,26.25vw,168px); }
   .tape { top: -11px; height: 22px; }
-  .polaroid-middle { top: 22%; left: 10%; }
-  .polaroid-back { top: 40%; left: -15%; }
+  .slot-2 { transform: translate(10%,22%) translateY(var(--lift,0)) rotate(9deg); }
+  .slot-3 { transform: translate(-15%,40%) translateY(var(--lift,0)) rotate(-8deg); }
   .section-heading { grid-template-columns: 1fr; gap: 22px; }
   .music-stage { grid-template-columns: 1fr; }
   .music-copy { min-height: 330px; border-right: 0; border-bottom: 1px solid var(--line-light); }
@@ -186,8 +203,8 @@ footer a { justify-self: end; }
   .polaroid-stack { right: 30px; bottom: 46px; width: 124px; }
   .tape { top: -8px; height: 17px; }
   .polaroid { padding: 7px 7px 26px; }
-  .polaroid-middle { top: 21%; left: 9%; }
-  .polaroid-back { top: 38%; left: -13%; }
+  .slot-2 { transform: translate(9%,21%) translateY(var(--lift,0)) rotate(9deg); }
+  .slot-3 { transform: translate(-13%,38%) translateY(var(--lift,0)) rotate(-8deg); }
   .polaroid figcaption { right: 7px; bottom: 5px; left: 7px; font-size: 12px; }
   .scroll-cue { bottom: 20px; }
   .scroll-cue svg { width: 18px; height: 10px; }

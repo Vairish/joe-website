@@ -34,19 +34,28 @@
         <img src="assets/Superluxe2.png" alt="Joe Kiernan — mostly harmless">
       </div>
 
-      <div class="polaroid-stack reveal">
-        <figure class="polaroid polaroid-back" aria-hidden="true">
-          <img src="assets/swans-pair.webp" alt="">
-          <figcaption>Swans</figcaption>
-        </figure>
-        <figure class="polaroid polaroid-middle" aria-hidden="true">
-          <img src="assets/moon-water.webp" alt="">
-          <figcaption>The Moon</figcaption>
-        </figure>
-        <figure class="polaroid polaroid-front">
+      <div class="polaroid-stack reveal" id="polaroid-stack">
+        <div class="polaroid polaroid-sizer" aria-hidden="true"><i></i></div>
+
+        <figure class="polaroid card p-self slot-1">
           <span class="tape" aria-hidden="true"></span>
           <img src="assets/Mesquare.png" alt="Black-and-white portrait of Joe Kiernan">
           <figcaption>Self Portrait</figcaption>
+          <button class="card-hit" type="button"><span class="sr-only">Bring Self Portrait to the front</span></button>
+        </figure>
+
+        <figure class="polaroid card p-moon slot-2">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="assets/moon-water.webp" alt="The moon low over open water">
+          <figcaption>The Moon</figcaption>
+          <button class="card-hit" type="button"><span class="sr-only">Bring The Moon to the front</span></button>
+        </figure>
+
+        <figure class="polaroid card p-swans slot-3">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="assets/swans-pair.webp" alt="A pair of swans on dark water">
+          <figcaption>Swans</figcaption>
+          <button class="card-hit" type="button"><span class="sr-only">Bring Swans to the front</span></button>
         </figure>
       </div>
 

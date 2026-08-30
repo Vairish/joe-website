@@ -45,6 +45,26 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-35% 0px -55%' });
 sections.forEach(section => sectionObserver.observe(section));
 
+const stack = $('#polaroid-stack');
+if (stack) {
+  const cards = $$('.card', stack);
+  let order = [...cards];
+
+  const restack = () => order.forEach((card, index) => {
+    card.classList.remove('slot-1', 'slot-2', 'slot-3');
+    card.classList.add(`slot-${index + 1}`);
+    $('.card-hit', card).setAttribute('aria-disabled', String(index === 0));
+  });
+
+  cards.forEach(card => $('.card-hit', card).addEventListener('click', () => {
+    if (order[0] === card) return;
+    order = [card, ...order.filter(other => other !== card)];
+    restack();
+  }));
+
+  restack();
+}
+
 const lightbox = $('#lightbox');
 $$('.photo').forEach(button => button.addEventListener('click', () => {
   const image = $('img', lightbox);
