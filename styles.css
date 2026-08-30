@@ -62,17 +62,20 @@ img { display: block; max-width: 100%; }
 
 /* card = one photograph (identity: framing + its own bit of tape) */
 .card { position: absolute; top: 0; left: 0; width: 100%; transition: transform .5s cubic-bezier(.2,.72,.2,1), background-color .5s ease, box-shadow .5s ease; }
-.card img { transition: filter .5s ease; }
+/* --grade belongs to the photo, --dim/--con to its depth in the pile */
+.card { --grade: grayscale(1); --dim: 1; --con: 1.08; }
+.card img { filter: var(--grade) brightness(var(--dim)) contrast(var(--con)); transition: filter .5s ease; }
 .p-moon img { object-position: 50% 52%; }
 .p-swans img { object-position: 48% 50%; }
+.p-swans { --grade: saturate(1.25); }
 
 /* slot = a position in the pile (depth: z-order, offset, dimming) */
 .slot-1 { z-index: 3; transform: translateY(var(--lift,0)) rotate(4.5deg); background: #eeeae2; box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.28); }
 .slot-2 { z-index: 2; transform: translate(12%,24%) translateY(var(--lift,0)) rotate(9deg); background: #e7e1d7; }
 .slot-3 { z-index: 1; transform: translate(-19%,43%) translateY(var(--lift,0)) rotate(-8deg); background: #dcd6cb; }
-.slot-1 img { filter: grayscale(1) contrast(1.08); }
-.slot-2 img { filter: grayscale(1) brightness(.84) contrast(1.16); }
-.slot-3 img { filter: grayscale(1) brightness(.72) contrast(1.2); }
+.slot-1 { --dim: 1; --con: 1.08; }
+.slot-2 { --dim: .84; --con: 1.16; }
+.slot-3 { --dim: .72; --con: 1.2; }
 
 .tape { position: absolute; z-index: 4; top: -13px; left: 50%; width: 44%; height: 26px; background: linear-gradient(90deg, rgba(189,174,134,.78), rgba(216,205,170,.88), rgba(184,168,127,.78)); box-shadow: 0 1px 2px rgba(0,0,0,.16); opacity: .9; }
 .p-self .tape { transform: translateX(-50%) rotate(2deg); }
