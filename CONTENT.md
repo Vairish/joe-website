@@ -80,19 +80,25 @@ number sets the order, never displayed
 
 ## Gallery layout
 
-Nine photos per page, scrolling sideways with arrows and dots. On phones,
-paging switches off and photos stack in a single column.
+Pages scroll sideways with arrows and dots underneath. On phones, paging
+switches off and photos stack in a single column.
 
 Each photo's shape decides its tile:
 
-| Photo | Tile |
-|---|---|
-| Landscape | 2 units wide × 1 tall |
-| Portrait | 1 wide × 2 tall |
-| Square | 2 × 2 — square photos become feature tiles |
+| Photo | Tile | Costs |
+|---|---|---|
+| Landscape | 2 units wide × 1 tall | 2 |
+| Portrait | 1 wide × 2 tall | 2 |
+| Square | 2 × 2 — square photos become feature tiles | 4 |
 
-The page is six units across, so nine landscape-and-portrait photos fill it
-exactly. Pages with square photos are taller. Gaps read as whitespace.
+The grid is 6 units across and 3 rows deep, so a page holds **18 units**.
+That's normally nine photos — or eight when one of them is square.
+
+Pages are filled by area rather than by count on purpose. Nine-always would
+make a page containing a square photo four rows tall while the rest were
+three, and the whole gallery would jump vertically as you paged through it.
+Filling by area keeps every page exactly three rows, so the height never
+moves. The last page is short, which is what a last page should look like.
 
 ---
 

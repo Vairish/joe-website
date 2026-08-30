@@ -110,10 +110,13 @@ img { display: block; max-width: 100%; }
    The grid is a 6-column field of square units. A landscape photo claims
    two units across, a portrait two down, so each tile roughly matches the
    shape of the photograph in it and cover-cropping stays minimal. */
-.gallery-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+/* Every page is exactly three rows, because pages are filled by area rather
+   than by photo count (see paginate() in script.js). So the track's height
+   never changes as you page through it. */
+.gallery-track { display: flex; align-items: stretch; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .gallery-track::-webkit-scrollbar { display: none; }
 .gallery-track:focus-visible { outline: 2px solid var(--oxblood); outline-offset: 6px; }
-.gallery-page { flex: 0 0 100%; display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: minmax(120px, 14.2vw); grid-auto-flow: dense; gap: 12px; scroll-snap-align: start; align-content: start; }
+.gallery-page { flex: 0 0 100%; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, minmax(120px, 14.2vw)); grid-auto-rows: minmax(120px, 14.2vw); grid-auto-flow: dense; gap: 12px; scroll-snap-align: start; align-content: start; }
 
 .photo { position: relative; padding: 0; overflow: hidden; border: 0; background: #111; cursor: zoom-in; }
 .photo[data-shape="landscape"] { grid-column: span 2; }

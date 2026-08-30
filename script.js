@@ -75,7 +75,37 @@ const empty = message => {
 
 /* ---------- photography ---------- */
 
-const PER_PAGE = 9;
+/* Pages are filled by area, not by count.
+ *
+ * The grid is 6 units across and 3 rows deep — 18 units. A landscape or
+ * portrait photo costs 2 units, a square one costs 4. So a page normally
+ * holds 9 photos, and 8 when one of them is square. Chunking by count
+ * instead would make pages with a square taller than the rest, and the
+ * whole gallery would jump as you paged through it. */
+const PAGE_UNITS = 18;
+const UNIT_COST = { landscape: 2, portrait: 2, square: 4 };
+
+// How many photos load eagerly before the rest wait to be scrolled to.
+const EAGER_COUNT = 9;
+
+function paginate(photos) {
+  const pages = [];
+  let page = [];
+  let units = 0;
+
+  for (const photo of photos) {
+    const cost = UNIT_COST[photo.shape] || 2;
+    if (units + cost > PAGE_UNITS && page.length) {
+      pages.push(page);
+      page = [];
+      units = 0;
+    }
+    page.push(photo);
+    units += cost;
+  }
+  if (page.length) pages.push(page);
+  return pages;
+}
 
 const photoTile = (photo, index) => {
   const button = el('button', 'photo');
@@ -94,7 +124,7 @@ const photoTile = (photo, index) => {
   // before the file arrives and nothing jumps as images load.
   if (photo.width) { image.width = photo.width; image.height = photo.height; }
   // Only the first page loads eagerly; later pages wait until scrolled to.
-  image.setAttribute('loading', index < PER_PAGE ? 'eager' : 'lazy');
+  image.setAttribute('loading', index < EAGER_COUNT ? 'eager' : 'lazy');
   image.setAttribute('decoding', 'async');
 
   const label = el('span');
@@ -110,7 +140,8 @@ if (photoGrid) {
   if (!DATA.photos.length) {
     photoGrid.append(empty('Run make-web in your photo folder, then copy the images folder in.'));
   } else {
-    const pageCount = Math.ceil(DATA.photos.length / PER_PAGE);
+    const pages = paginate(DATA.photos);
+    const pageCount = pages.length;
 
     // reveal lives on the track, not the pages — a page scrolled out of
     // view horizontally never intersects, and would stay invisible.
@@ -120,18 +151,22 @@ if (photoGrid) {
     track.setAttribute('role', 'region');
     track.setAttribute('aria-label', `Photographs, ${pageCount} page${pageCount > 1 ? 's' : ''}`);
 
-    for (let page = 0; page < pageCount; page++) {
+    let seen = 0;
+    pages.forEach((group, page) => {
       const panel = el('div', 'gallery-page');
       panel.setAttribute('aria-label', `Page ${page + 1} of ${pageCount}`);
-      DATA.photos
-        .slice(page * PER_PAGE, (page + 1) * PER_PAGE)
-        .forEach((photo, offset) => panel.append(photoTile(photo, page * PER_PAGE + offset)));
+      group.forEach(photo => panel.append(photoTile(photo, seen++)));
       track.append(panel);
-    }
+    });
     photoGrid.append(track);
 
     if (pageCount > 1) buildGalleryNav(photoGrid, track, pageCount);
   }
+}
+
+function currentPageOf(track) {
+  const width = track.firstElementChild?.getBoundingClientRect().width || 0;
+  return width ? Math.round(track.scrollLeft / width) : 0;
 }
 
 function buildGalleryNav(root, track, pageCount) {
@@ -162,10 +197,7 @@ function buildGalleryNav(root, track, pageCount) {
 
   // Guarded: width is 0 before first layout, and 0/0 would give NaN.
   const pageWidth = () => track.firstElementChild.getBoundingClientRect().width || 0;
-  const currentPage = () => {
-    const width = pageWidth();
-    return width ? Math.round(track.scrollLeft / width) : 0;
-  };
+  const currentPage = () => currentPageOf(track);
 
   function goToPage(page) {
     const target = Math.max(0, Math.min(pageCount - 1, page));
