@@ -185,7 +185,7 @@ footer a { justify-self: end; }
   footer a { width: 100%; }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 800px) {
   .hero { min-height: min(100svh, 66.6667vw); height: min(100svh, 66.6667vw); }
 }
 
