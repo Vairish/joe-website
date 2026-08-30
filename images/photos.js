@@ -334,12 +334,12 @@ window.PHOTOS = [
     "full": "images/38 - Dragonflying - Cabinteely Park-full.webp"
   },
   {
-    "title": "Dragonresting- Mount Usher",
-    "subtitle": null,
+    "title": "Dragonresting",
+    "subtitle": "Mount Usher",
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/39 - Dragonresting- Mount Usher-grid.webp",
-    "full": "images/39 - Dragonresting- Mount Usher-full.webp"
+    "grid": "images/39 - Dragonresting - Mount Usher-grid.webp",
+    "full": "images/39 - Dragonresting - Mount Usher-full.webp"
   }
 ];
