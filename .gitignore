@@ -1,0 +1,13 @@
+node_modules/
+
+# Full-resolution originals are NOT committed — they live on your machine.
+# The repo tracks only the web-sized copies in images/_web/, which is what
+# the site actually serves. Keeps the repository small and fast to clone.
+#
+# Because of this, run `node build.mjs` (or build.bat) BEFORE pushing, so the
+# web copies of any new photo are generated and committed. The GitHub Action
+# can't do it for you — it never sees the originals.
+#
+# Keep your own backup of images/. Git is not backing it up.
+images/*
+!images/_web/

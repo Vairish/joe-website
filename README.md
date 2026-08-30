@@ -1,29 +1,28 @@
 # Joe Kiernan — Personal Website
 
-A clean, responsive personal site with separate Photography, Music, Software and Blog sections.
+A responsive personal site for photography, music, software and occasional notes.
 
 ## Preview
 
 Open `index.html`, or run:
 
 ```bash
-python3 -m http.server 8080 --directory joe-portfolio
+python3 -m http.server 8080
 ```
 
 Then visit `http://localhost:8080`.
 
 ## Included
 
-- Full-width supplied banner image
-- Responsive navigation with active-section highlighting
-- Permanent dark presentation with a black hero canvas
+- Full-screen hero using Joe's supplied coastal photograph
+- Centred transparent logo and taped Polaroid portrait
+- Responsive, unframed navigation with active-section highlighting
+- Adaptive image grading and focal-point cropping
 - Photography lightbox
-- Reading-progress indicator
-- Contained banner with a clean fade into the page background
-- Staggered blur-to-focus scroll reveals
-- Interactive 3D project-card tilt and magnetic controls
-- Animated image treatments and section rules
-- Reduced-motion support for every animation
+- Subtle scroll reveals and coastal parallax
+- Animated music waveform
+- Editorial software and notes sections
+- Reduced-motion support
 - Structured track list ready for MP3, Bandcamp or SoundCloud
 
 ## Before publishing
