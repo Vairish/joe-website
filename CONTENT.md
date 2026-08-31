@@ -80,8 +80,22 @@ number sets the order, never displayed
 
 ## Gallery layout
 
-Pages scroll sideways with arrows and dots underneath. On phones, paging
-switches off and photos stack in a single column.
+Pages scroll sideways with arrows underneath — dots up to 8 pages, then a
+`3 / 23` counter, since a dot per page stops being useful past that.
+
+Paging works at every screen size. Only the grid's shape changes, so page
+count and photo order are identical on a phone and a monitor:
+
+| Screen | Grid | Page height |
+|---|---|---|
+| Desktop, 801px+ | 6 across × 3 down | ~0.9 screens |
+| Tablet, ≤800px | 4 × 5 | ~1.0 |
+| Large phone, ≤700px | 3 × 7 | ~1.4 |
+| Phone, ≤480px | 2 × 9 | ~2.3 |
+
+All four hold 18 units. The column counts were picked by testing which ones
+tile without stranding photos into an extra row — 2 and 6 tile perfectly, 3
+and 4 leave a few empty cells but stay a consistent height.
 
 Each photo's shape decides its tile:
 

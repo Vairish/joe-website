@@ -186,13 +186,22 @@ function buildGalleryNav(root, track, pageCount) {
     return button;
   };
 
+  // A dot per page stops being useful past about eight — at 200 photos that
+  // would be 23 of them. Beyond that, show a plain count instead.
+  const DOT_LIMIT = 8;
+  const useDots = pageCount <= DOT_LIMIT;
+
   const dots = el('div', 'gallery-dots');
-  for (let page = 0; page < pageCount; page++) {
-    const dot = el('button', 'gallery-dot');
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `Go to page ${page + 1}`);
-    dot.addEventListener('click', () => goToPage(page));
-    dots.append(dot);
+  if (useDots) {
+    for (let page = 0; page < pageCount; page++) {
+      const dot = el('button', 'gallery-dot');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to page ${page + 1}`);
+      dot.addEventListener('click', () => goToPage(page));
+      dots.append(dot);
+    }
+  } else {
+    dots.classList.add('gallery-count');
   }
 
   const previous = arrow('prev', 'Previous page', '←');
@@ -211,12 +220,17 @@ function buildGalleryNav(root, track, pageCount) {
 
   const syncNav = () => {
     const page = currentPage();
-    [...dots.children].forEach((dot, index) => {
-      dot.classList.toggle('active', index === page);
-      dot.setAttribute('aria-current', index === page ? 'true' : 'false');
-    });
+    if (useDots) {
+      [...dots.children].forEach((dot, index) => {
+        dot.classList.toggle('active', index === page);
+        dot.setAttribute('aria-current', index === page ? 'true' : 'false');
+      });
+    } else {
+      dots.textContent = `${page + 1} / ${pageCount}`;
+    }
     previous.disabled = page === 0;
     next.disabled = page === pageCount - 1;
+    track.setAttribute('aria-label', `Photographs, page ${page + 1} of ${pageCount}`);
   };
 
   let frame = null;
