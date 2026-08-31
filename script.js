@@ -32,7 +32,12 @@ const revealObserver = new IntersectionObserver(entries => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: .07, rootMargin: '0px 0px -30px' });
+// threshold MUST stay 0. A percentage threshold is unsatisfiable for an
+// element taller than the viewport — on mobile the gallery becomes one
+// column ~14,000px tall, so 7% of it never fits on screen and the section
+// would stay at opacity 0 forever. rootMargin still holds the reveal back
+// until the element is properly on screen.
+}, { threshold: 0, rootMargin: '0px 0px -30px' });
 // Observation happens after the sections below are rendered, so that
 // generated .reveal elements are picked up too.
 
@@ -347,6 +352,16 @@ function formatDate(iso) {
 
 // Everything above is now in the DOM — start watching for reveals.
 $$('.reveal').forEach(item => revealObserver.observe(item));
+
+// Safety net. A .reveal element that never receives .visible is invisible,
+// not merely un-animated — a silent, total failure. Once everything has
+// loaded, reveal anything already on screen regardless of the observer.
+addEventListener('load', () => {
+  $$('.reveal:not(.visible)').forEach(item => {
+    const box = item.getBoundingClientRect();
+    if (box.top < innerHeight && box.bottom > 0) item.classList.add('visible');
+  });
+});
 
 const stack = $('#polaroid-stack');
 if (stack) {

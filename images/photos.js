@@ -20,12 +20,12 @@ window.PHOTOS = [
   },
   {
     "title": "The Moon",
-    "subtitle": "Over Open Water",
+    "subtitle": "Dalkey",
     "width": 4160,
     "height": 6240,
     "shape": "portrait",
-    "grid": "images/03 - The Moon - Over Open Water-grid.webp",
-    "full": "images/03 - The Moon - Over Open Water-full.webp"
+    "grid": "images/03 - The Moon - Dalkey-grid.webp",
+    "full": "images/03 - The Moon - Dalkey-full.webp"
   },
   {
     "title": "Butterfly",
@@ -341,5 +341,14 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/39 - Dragonresting - Mount Usher-grid.webp",
     "full": "images/39 - Dragonresting - Mount Usher-full.webp"
+  },
+  {
+    "title": "When your Fringe Is Flawless But Your Table Manners Aren’t.",
+    "subtitle": "Kilruddery Estate",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/40 - When your Fringe Is Flawless But Your Table Manners Aren't. - Kilruddery Estate-grid.webp",
+    "full": "images/40 - When your Fringe Is Flawless But Your Table Manners Aren't. - Kilruddery Estate-full.webp"
   }
 ];
