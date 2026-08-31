@@ -251,18 +251,30 @@ function buildGalleryNav(root, track, pageCount) {
 /* ---------- music ---------- */
 
 const trackList = $('#track-list');
-const player = new Audio();
-let currentTrack = null;
+const audio = new Audio();
+// 'metadata' not 'auto': cueing the first track on load should cost a header,
+// not a whole MP3 nobody has asked to hear yet.
+audio.preload = 'metadata';
 
-const clock = seconds => Number.isFinite(seconds)
+const rows = [];
+let index = -1;                 // which track is cued; -1 = none
+
+// Assigned by the transport below. Declared here because the track rows are
+// built first and their click handlers call it. A no-op until then, so a
+// missing transport can't throw.
+let select = () => {};
+
+const clock = seconds => Number.isFinite(seconds) && seconds >= 0
   ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`
   : '—:—';
+
+/* ---------- track rows ---------- */
 
 if (trackList) {
   if (!DATA.tracks.length) {
     trackList.append(empty('Drop MP3s into the music folder and run update-lists.'));
   } else {
-    DATA.tracks.forEach(track => {
+    DATA.tracks.forEach((track, position) => {
       const row = el('div', 'track');
       row.dataset.src = track.src;
 
@@ -277,45 +289,158 @@ if (trackList) {
 
       const time = el('time', null, '—:—');
 
-      // Ask the browser for just the header so we can show a duration
+      // Ask the browser for just the header, so a duration can be shown
       // without downloading the whole file.
       const probe = new Audio();
       probe.preload = 'metadata';
       probe.addEventListener('loadedmetadata', () => { time.textContent = clock(probe.duration); });
       probe.src = track.src;
 
-      button.addEventListener('click', () => toggleTrack(row));
+      button.addEventListener('click', () => select(position, { toggle: true }));
       row.append(button, label, time);
       trackList.append(row);
+      rows.push(row);
     });
   }
 }
 
-function toggleTrack(row) {
-  if (currentTrack === row) {
-    player.paused ? player.play() : player.pause();
-    return;
+/* ---------- transport ---------- */
+
+const playerBar = $('#player');
+
+if (playerBar && DATA.tracks.length) {
+  playerBar.hidden = false;
+
+  const toggleButton = $('.player-toggle', playerBar);
+  const prevButton = $('[data-action="prev"]', playerBar);
+  const nextButton = $('[data-action="next"]', playerBar);
+  const range = $('#player-range');
+  const elapsedOut = $('#player-elapsed');
+  const durationOut = $('#player-duration');
+  const titleOut = $('#player-title');
+  const subOut = $('#player-sub');
+
+  // While the seek bar is being dragged, timeupdate must not fight the thumb.
+  let seeking = false;
+
+  const isPlaying = () => !audio.paused && !audio.ended && audio.currentSrc;
+
+  /** Point the player at a track. Plays unless told otherwise. */
+  select = function (position, { toggle = false, play = true } = {}) {
+    if (position < 0 || position >= DATA.tracks.length) return;
+
+    if (position === index && toggle) {
+      isPlaying() ? audio.pause() : audio.play().catch(paintTransport);
+      return;
+    }
+
+    index = position;
+    const track = DATA.tracks[index];
+
+    audio.src = track.src;
+    titleOut.textContent = track.title;
+    subOut.textContent = track.subtitle || '';
+    range.value = 0;
+    paintRange();
+    elapsedOut.textContent = '0:00';
+    durationOut.textContent = '—:—';
+    announce(track);
+
+    if (play) audio.play().catch(paintTransport);
+    paintTransport();
+  };
+
+  /* Lock-screen and media-key support, where the browser offers it. */
+  function announce(track) {
+    if (!('mediaSession' in navigator)) return;
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: track.title,
+      artist: 'Joe Kiernan',
+      album: track.subtitle || 'Mostly Harmless'
+    });
   }
-  if (currentTrack) currentTrack.classList.remove('playing');
-  currentTrack = row;
-  row.classList.add('playing');
-  player.src = row.dataset.src;
-  player.play().catch(() => row.classList.remove('playing'));
-}
 
-const syncPlayer = () => {
-  const playing = currentTrack && !player.paused && !player.ended;
-  $$('.track').forEach(row => {
-    const active = row === currentTrack && playing;
-    row.classList.toggle('playing', Boolean(active));
-    const glyph = $('.glyph', row);
-    if (glyph) glyph.textContent = active ? '❚❚' : '▶';
+  function paintTransport() {
+    const playing = isPlaying();
+
+    $('span', toggleButton).textContent = playing ? '❚❚' : '▶';
+    toggleButton.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    prevButton.disabled = index <= 0;
+    nextButton.disabled = index >= DATA.tracks.length - 1;
+
+    rows.forEach((row, position) => {
+      const active = position === index;
+      row.classList.toggle('cued', active);
+      row.classList.toggle('playing', active && playing);
+      const glyph = $('.glyph', row);
+      if (glyph) glyph.textContent = active && playing ? '❚❚' : '▶';
+    });
+
+    $$('.waveform').forEach(wave => wave.classList.toggle('active', playing));
+  }
+
+  /* --- controls --- */
+
+  toggleButton.addEventListener('click', () => {
+    if (index === -1) return select(0);
+    isPlaying() ? audio.pause() : audio.play().catch(paintTransport);
   });
-  $$('.waveform').forEach(wave => wave.classList.toggle('active', Boolean(playing)));
-};
+  prevButton.addEventListener('click', () => select(index - 1));
+  nextButton.addEventListener('click', () => select(index + 1));
 
-['play', 'pause', 'ended'].forEach(event => player.addEventListener(event, syncPlayer));
-player.addEventListener('ended', () => { currentTrack = null; syncPlayer(); });
+  /* --- seeking --- */
+
+  // Chrome/Safari can't fill a range track natively, so the played portion
+  // is a gradient stop the CSS reads from --played.
+  const paintRange = () => range.style.setProperty('--played', `${range.value / 10}%`);
+
+  const scrub = () => {
+    if (!Number.isFinite(audio.duration)) return;
+    audio.currentTime = (range.value / 1000) * audio.duration;
+  };
+
+  range.addEventListener('pointerdown', () => { seeking = true; });
+  range.addEventListener('keydown', () => { seeking = true; });
+  range.addEventListener('input', () => {
+    paintRange();
+    if (!Number.isFinite(audio.duration)) return;
+    elapsedOut.textContent = clock((range.value / 1000) * audio.duration);
+  });
+  range.addEventListener('change', () => { scrub(); seeking = false; });
+  ['pointerup', 'pointercancel'].forEach(event =>
+    range.addEventListener(event, () => { scrub(); seeking = false; }));
+
+  /* --- audio events --- */
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationOut.textContent = clock(audio.duration);
+    range.max = 1000;
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (seeking || !Number.isFinite(audio.duration) || !audio.duration) return;
+    range.value = Math.round((audio.currentTime / audio.duration) * 1000);
+    paintRange();
+    elapsedOut.textContent = clock(audio.currentTime);
+  });
+
+  ['play', 'pause'].forEach(event => audio.addEventListener(event, paintTransport));
+
+  // Roll on to the next track, and stop cleanly at the end of the list.
+  audio.addEventListener('ended', () => {
+    if (index < DATA.tracks.length - 1) select(index + 1);
+    else { range.value = 0; paintRange(); elapsedOut.textContent = '0:00'; paintTransport(); }
+  });
+
+  audio.addEventListener('error', () => {
+    if (!audio.currentSrc) return;
+    subOut.textContent = 'Could not load this track';
+    paintTransport();
+  });
+
+  // Cue the first track without playing it, so the bar isn't blank on load.
+  select(0, { play: false });
+}
 
 /* ---------- notes ---------- */
 

@@ -24,9 +24,24 @@ const AUDIO_TYPES = new Set(['.mp3', '.m4a', '.ogg', '.wav', '.flac']);
 
 /* ---------- filename -> title ---------- */
 
+const KNOWN_EXTS = new Set([...AUDIO_TYPES, '.md', '.txt']);
+
+/* Strips repeated extensions. Typing "First Light.mp3" into the filename box
+ * and letting Windows add its own gives "First Light.mp3.mp3", which would
+ * otherwise put a visible ".mp3" in the subtitle on the site. */
+function stripExtensions(file) {
+  let stem = file;
+  let ext = extname(stem).toLowerCase();
+  while (ext && KNOWN_EXTS.has(ext)) {
+    stem = basename(stem, extname(stem));
+    ext = extname(stem).toLowerCase();
+  }
+  return stem;
+}
+
 // "01 - Title - Subtitle.mp3" / "2026-08-29 - Title.md"
 function parseName(file) {
-  const stem = basename(file, extname(file));
+  const stem = stripExtensions(file);
   const parts = stem.split(/\s+[-–—]\s+/);
   let sort = null;
   let date = null;

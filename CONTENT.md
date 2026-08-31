@@ -35,8 +35,17 @@ next run.
 Drop `.mp3` (or `.m4a`, `.ogg`, `.wav`, `.flac`) into `music/`, then
 double-click `update-lists.bat`.
 
-Durations are read from the files by the browser — you don't type them in. One
-track plays at a time, and the waveform animates while it does.
+Durations are read from the files by the browser — you don't type them in.
+
+There's a transport bar under the waveform: previous, play/pause, next, a seek
+bar and elapsed/total time. Clicking a track in the list plays it; clicking the
+same one again pauses. Tracks auto-advance to the next and stop at the end of
+the list. The waveform only animates while something is playing.
+
+**Don't type the extension into the filename.** Windows adds it for you, so
+`01 - First Light - Instrumental Rock.mp3` typed into the name box becomes
+`…Rock.mp3.mp3` on disk. The build strips repeated extensions now, so the site
+looks right either way — but the file itself stays oddly named.
 
 ## Notes
 

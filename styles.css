@@ -147,19 +147,63 @@ img { display: block; max-width: 100%; }
 .waveform { grid-column: 1 / -1; height: clamp(180px,24vw,350px); display: flex; justify-content: center; align-items: center; gap: clamp(4px,.8vw,13px); overflow: hidden; border-bottom: 1px solid var(--line-light); background: linear-gradient(135deg, #111, #050505); }
 .waveform i { width: 4px; height: 15%; background: var(--rust); transform-origin: center; }
 .waveform i:nth-child(3n) { height: 70%; }.waveform i:nth-child(4n) { height: 38%; }.waveform i:nth-child(5n) { height: 92%; }.waveform i:nth-child(7n) { height: 55%; }
+/* Transport sits directly under the waveform, spanning the stage. */
+.player { grid-column: 1 / -1; display: flex; align-items: center; gap: clamp(18px,2.6vw,34px); padding: clamp(18px,2.2vw,26px) clamp(20px,3vw,40px); border-bottom: 1px solid var(--line-light); background: #0a0a0a; }
+.player[hidden] { display: none; }
+
+.player-transport { display: flex; align-items: center; gap: 8px; }
+.player-button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #4a4a4a; border-radius: 50%; background: transparent; color: #b9b5ae; font-size: 11px; cursor: pointer; transition: .2s; }
+.player-button:hover:not(:disabled) { border-color: var(--rust-soft); color: var(--rust-soft); }
+.player-button:disabled { opacity: .3; cursor: default; }
+.player-button:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 3px; }
+.player-toggle { width: 48px; height: 48px; border-color: var(--rust); background: var(--rust); color: var(--white); font-size: 13px; }
+.player-toggle:hover:not(:disabled) { border-color: #bd5c41; background: #bd5c41; color: var(--white); }
+
+.player-body { flex: 1; min-width: 0; }
+.player-now { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin: 0 0 10px; }
+.player-now b { font-size: 13px; font-weight: 600; }
+.player-now small { color: #77736c; font: 400 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+
+.player-seek { display: flex; align-items: center; gap: 12px; }
+.player-seek time { flex: none; width: 38px; color: #77736c; font: 500 10px var(--mono); font-variant-numeric: tabular-nums; }
+.player-seek time:last-child { text-align: right; }
+
+/* Range input, restyled. --played is set by script.js for the filled portion. */
+#player-range { flex: 1; min-width: 0; height: 18px; margin: 0; padding: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
+/* Chrome/Safari have no equivalent of Firefox's ::-moz-range-progress, so the
+   filled portion is a hard-stop gradient driven by --played from script.js. */
+#player-range::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: linear-gradient(to right, var(--rust) var(--played, 0%), #333 var(--played, 0%)); }
+#player-range::-moz-range-track { height: 3px; border-radius: 2px; background: #333; }
+#player-range::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--rust); }
+#player-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; margin-top: -4.5px; border: 0; border-radius: 50%; background: var(--white); transition: transform .15s; }
+#player-range::-moz-range-thumb { width: 12px; height: 12px; border: 0; border-radius: 50%; background: var(--white); }
+#player-range:hover::-webkit-slider-thumb { transform: scale(1.25); }
+#player-range:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 4px; border-radius: 3px; }
+
 .music-copy { display: flex; flex-direction: column; justify-content: space-between; min-height: 400px; padding: clamp(28px,4vw,60px); border-right: 1px solid var(--line-light); }
 .music-copy p { margin: 0; font-family: var(--serif); font-size: clamp(48px,6vw,88px); font-style: italic; line-height: .92; letter-spacing: -.05em; }
 .music-copy span { max-width: 330px; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .track-list { align-self: center; width: 100%; padding: clamp(25px,4vw,60px); }
 .track { display: grid; grid-template-columns: 45px 1fr auto; gap: 17px; align-items: center; min-height: 78px; border-bottom: 1px solid var(--line-light); }
 .track:first-child { border-top: 1px solid var(--line-light); }
-.track button { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #555; border-radius: 50%; background: transparent; color: #999; font-size: 11px; cursor: pointer; transition: .2s; }
-.track button:hover { border-color: var(--rust-soft); color: var(--rust-soft); }
-.track.playing button { border-color: var(--rust-soft); background: var(--rust); color: var(--white); }
+.track button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #4a4a4a; border-radius: 50%; background: transparent; color: #8d8981; font-size: 10px; cursor: pointer; transition: .2s; }
+.track:hover button { border-color: #777; color: #b9b5ae; }
+.track button:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 3px; }
+
+/* The transport bar above owns playback now, so a row only needs to say
+   which track it is — not carry a second, louder set of controls. The
+   current track is marked by colour rather than a filled button or a
+   background band, both of which fought the transport for attention. */
+.track.cued b { color: var(--white); }
 .track.playing b { color: var(--rust-soft); }
+.track.playing button { border-color: var(--rust-soft); color: var(--rust-soft); }
+.track.playing:hover button { border-color: var(--rust-soft); color: var(--rust-soft); }
+
 .track b, .track small { display: block; }
 .track b { font-size: 13px; }
-.track small, .track time { margin-top: 5px; color: #77736c; font-size: 10px; }
+.track small { margin-top: 5px; color: #7d7871; font-size: 10px; }
+/* No margin-top here — it pushed the duration off the row's centre line. */
+.track time { color: #7d7871; font: 500 10px var(--mono); font-variant-numeric: tabular-nums; }
 
 .software-section { background: var(--oxblood); color: var(--white); }
 .software-section .section-heading { border-color: rgba(241,238,231,.3); }
@@ -254,6 +298,9 @@ footer a { justify-self: end; }
   .gallery-page { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(5, minmax(110px, 21.4vw)); grid-auto-rows: minmax(110px, 21.4vw); }
   .music-stage { grid-template-columns: 1fr; }
   .music-copy { min-height: 330px; border-right: 0; border-bottom: 1px solid var(--line-light); }
+  .player { flex-wrap: wrap; gap: 16px; }
+  .player-body { flex-basis: 100%; order: 2; }
+  .player-transport { order: 1; }
   .project { grid-template-columns: 40px 1fr 45px; }
   .project .tech { display: none; }
   .note { grid-template-columns: 95px 1fr 45px; gap: 18px; }
