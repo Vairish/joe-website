@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A keyboard-only photo culler for Windows. Right arrow keeps, left arrow bins — RAW files follow their JPEGs. Nothing is deleted, nothing is uploaded.">
+  <meta name="theme-color" content="#050505">
+  <title>Cullery — Joe Kiernan</title>
+
+  <meta property="og:title" content="Cullery — a keyboard-only photo culler for Windows">
+  <meta property="og:description" content="Right arrow keeps, left arrow bins. RAW files follow their JPEGs. Nothing is deleted, nothing is uploaded.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.joekiernan.com/cullery/">
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../effects.css">
+  <link rel="stylesheet" href="cullery.css">
+</head>
+<body class="app-page">
+  <header class="site-header scrolled">
+    <a class="wordmark" href="../"><span>joekiernan</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><b class="sr-only">Menu</b>
+    </button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="../#photography">Photography</a>
+      <a href="../#music">Music</a>
+      <a href="../#software" class="active">Software</a>
+      <a href="../#notes">Notes</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ---------------- hero ---------------- -->
+    <section class="app-hero">
+      <p class="app-eyebrow"><a href="../#software">Software</a> <span aria-hidden="true">/</span> v0.1</p>
+      <h1>Cullery</h1>
+      <p class="app-tagline">The fastest way to decide which photos you don’t need.</p>
+      <p class="app-lede">
+        A keyboard-only photo culler for Windows. Point it at a folder of camera files and
+        it shows you one photo at a time, full screen. Keepers aren’t touched. Rejects go to
+        a Trash folder, RAW and all, so you can look through them before you delete anything
+        yourself.
+      </p>
+
+      <div class="keycaps" id="keycaps" aria-hidden="true">
+        <div class="keycap" data-key="ArrowLeft"><b>←</b><small>Reject</small></div>
+        <div class="keycap" data-key="ArrowRight"><b>→</b><small>Keep</small></div>
+        <div class="keycap keycap-wide" data-key="KeyZ"><b>Z</b><small>Undo</small></div>
+      </div>
+      <p class="keycaps-hint">Press the arrow keys.</p>
+
+      <p class="app-cta">
+        <a class="button-primary" href="https://www.mediafire.com/file/625qcmhqvy9e349/Cullery.zip/file" rel="noopener">Download Cullery v0.1</a>
+        <span class="app-cta-meta">Windows · no installer · free</span>
+      </p>
+    </section>
+
+    <!-- ---------------- what it does ---------------- -->
+    <section class="app-section app-section-paper">
+      <header class="section-heading reveal">
+        <div><span>01</span><h2>What it does</h2></div>
+        <p>One photo, two keys, next photo.</p>
+      </header>
+
+      <div class="app-prose reveal">
+        <p>
+          Camera backups grow because deciding is slow. Opening a folder of 800 frames in an
+          image viewer, right-clicking, dragging things around, remembering which RAW belongs
+          to which JPEG — it’s enough friction that most of us just buy another drive instead.
+        </p>
+        <p class="app-pull">Cullery removes the friction by removing the choices.</p>
+      </div>
+
+      <dl class="app-features">
+        <div class="app-feature reveal">
+          <dt>Two keys</dt>
+          <dd>
+            <span class="kbd">→</span> keeps, <span class="kbd">←</span> rejects. That’s the entire
+            interaction. Your hand doesn’t leave the arrow keys and your eyes don’t leave the photo.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>RAW travels with the JPEG</dt>
+          <dd>
+            Reject a shot and its <code>.RAF</code>, <code>.CR2</code>, <code>.CR3</code>,
+            <code>.NEF</code>, <code>.ARW</code>, <code>.DNG</code>, <code>.ORF</code>,
+            <code>.RW2</code> or <code>.XMP</code> sidecar goes with it. The header shows you
+            what’s attached before you decide, so you always know what a keypress will move.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Keepers never move</dt>
+          <dd>
+            Pressing <span class="kbd">→</span> touches nothing on disk. Filenames, folder
+            structure, timestamps — exactly as your camera left them.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Nothing is ever deleted</dt>
+          <dd>
+            Rejects are moved, into a Trash folder you can point anywhere. Emptying it is your
+            job, done in Explorer, when you’re ready. Cullery has no delete code in it.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Undo, as far back as you like</dt>
+          <dd>
+            Fat-fingered a keeper into the bin? Press <span class="kbd">Z</span>. It puts the
+            RAW back too.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Picks up where you left off</dt>
+          <dd>
+            Close it mid-card and reopen later; it skips everything you’ve already judged and
+            starts at the next undecided frame.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Fast enough to keep up with you</dt>
+          <dd>
+            Upcoming shots are decoded in the background while you look at the current one, so
+            40-megapixel files still advance instantly.
+          </dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>Offline and self-contained</dt>
+          <dd>
+            No account, no telemetry, no network access, no install. One <code>.exe</code>, and
+            your photos never leave your machine.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ---------------- requirements ---------------- -->
+    <section class="app-section app-section-dark">
+      <header class="section-heading reveal">
+        <div><span>02</span><h2>Requirements</h2></div>
+        <p>Two things worth checking before you download.</p>
+      </header>
+
+      <dl class="app-features app-features-dark">
+        <div class="app-feature reveal">
+          <dt>Windows</dt>
+          <dd>v0.1 is Windows-only — it’s a single <code>.exe</code>.</dd>
+        </div>
+        <div class="app-feature reveal">
+          <dt>A JPEG for each shot</dt>
+          <dd>
+            Cullery previews JPEG, PNG and TIFF. It moves RAW files but can’t yet display them,
+            so shoot RAW + JPEG and it’ll work as you’d expect. If you shoot RAW-only, this
+            version has nothing to show you — sorry, it’s on the list.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ---------------- download ---------------- -->
+    <section class="app-section app-section-paper" id="download">
+      <header class="section-heading reveal">
+        <div><span>03</span><h2>Download</h2></div>
+        <p>No installer. Put it wherever you like, double-click.</p>
+      </header>
+
+      <div class="download-card reveal">
+        <div class="download-head">
+          <b>Cullery v0.1</b>
+          <span>Windows · .zip</span>
+        </div>
+        <a class="button-primary" href="https://www.mediafire.com/file/625qcmhqvy9e349/Cullery.zip/file" rel="noopener">Download Cullery v0.1</a>
+      </div>
+
+      <div class="app-prose app-warning reveal">
+        <h3>Windows will warn you the first time</h3>
+        <p>
+          The download is unsigned — a code-signing certificate costs more than this free tool
+          is worth right now — so you’ll see <b>“Windows protected your PC.”</b> Click
+          <b>More info → Run anyway</b>. Your antivirus may grumble too; single-file Python
+          builds are a well-known false positive.
+        </p>
+        <p>
+          That is a real trade, and it’s asking you to take my word for it. If you’re not
+          comfortable with that, don’t — it’s an entirely reasonable call, and I’d rather say
+          so plainly than talk you into it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ---------------- known limits ---------------- -->
+    <section class="app-section app-section-dark">
+      <header class="section-heading reveal">
+        <div><span>04</span><h2>Known limits</h2></div>
+        <p>Honest notes on v0.1, so nothing comes as a surprise.</p>
+      </header>
+
+      <ul class="app-limits reveal">
+        <li><b>RAW-only folders show nothing.</b> It needs a JPEG to preview. Highest priority for v0.2.</li>
+        <li><b>Windows only.</b></li>
+        <li><b>No zoom yet</b>, so it’s a keep/bin pass, not a focus-check pass.</li>
+        <li><b>Reads the folder you point it at</b>, not subfolders.</li>
+        <li><b>The .exe is unsigned</b> — see above.</li>
+      </ul>
+
+      <p class="app-back reveal"><a href="../#software">← Back to software</a></p>
+    </section>
+  </main>
+
+  <footer><span>© <b id="year"></b> Joe Kiernan</span><span>Mostly harmless.</span><a href="#top">Back to top ↑</a></footer>
+
+  <script src="cullery.js"></script>
+</body>
+</html>

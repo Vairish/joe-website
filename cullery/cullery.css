@@ -1,0 +1,105 @@
+/* Cullery product page. Loaded after styles.css, so it inherits the site's
+   palette, type and header/footer and only adds what this page needs. */
+
+.app-page { background: var(--paper); }
+.app-page main { padding-top: 76px; }
+
+/* ---------- hero ---------- */
+
+.app-hero { padding: clamp(56px,7vw,104px) clamp(24px,5vw,80px) clamp(64px,8vw,120px); background: var(--black); color: var(--white); }
+.app-eyebrow { margin: 0 0 clamp(20px,3vw,34px); color: var(--rust-soft); font: 500 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.app-eyebrow a { border-bottom: 1px solid rgba(201,123,95,.4); }
+.app-eyebrow a:hover { border-bottom-color: var(--rust-soft); }
+.app-eyebrow span { margin: 0 8px; opacity: .5; }
+
+.app-hero h1 { max-width: 14ch; margin: 0; font-size: clamp(58px,11vw,158px); font-weight: 650; letter-spacing: -.075em; line-height: .88; }
+.app-tagline { max-width: 26ch; margin: clamp(18px,2.4vw,30px) 0 0; color: var(--rust-soft); font-family: var(--serif); font-size: clamp(21px,2.9vw,44px); font-style: italic; letter-spacing: -.02em; line-height: 1.12; }
+.app-lede { max-width: 62ch; margin: clamp(26px,3.4vw,44px) 0 0; color: #b9b5ae; font-size: clamp(14px,1.15vw,17px); line-height: 1.72; }
+
+/* Keycaps: this is a keyboard tool, so the page shows the keys.
+   cullery.js lights them up when the real key is pressed. */
+.keycaps { display: flex; flex-wrap: wrap; gap: 12px; margin: clamp(34px,4.4vw,56px) 0 0; }
+.keycap { display: grid; place-items: center; gap: 5px; min-width: 84px; padding: 15px 18px 12px; border: 1px solid rgba(241,238,231,.22); border-radius: 8px; background: linear-gradient(180deg, #191919, #0d0d0d); box-shadow: 0 3px 0 rgba(241,238,231,.13), 0 9px 20px rgba(0,0,0,.5); transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease; }
+.keycap b { font-size: 21px; line-height: 1; }
+.keycap small { color: #86827b; font: 500 8px var(--mono); letter-spacing: .11em; text-transform: uppercase; transition: color .12s ease; }
+.keycap.pressed { transform: translateY(3px); border-color: var(--rust-soft); background: linear-gradient(180deg, #2a1610, #1a0e0a); box-shadow: 0 0 0 rgba(0,0,0,0), 0 4px 14px rgba(0,0,0,.5); }
+.keycap.pressed b { color: var(--rust-soft); }
+.keycap.pressed small { color: var(--rust-soft); }
+.keycaps-hint { margin: 14px 0 0; color: #6d6a64; font: 400 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+
+.app-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin: clamp(40px,5vw,64px) 0 0; }
+.app-cta-meta { color: #86827b; font: 500 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+
+.button-primary { display: inline-block; padding: 16px 30px; background: var(--rust); color: var(--white); font-size: 13px; font-weight: 600; letter-spacing: .01em; transition: background .2s, transform .2s; }
+.button-primary:hover { background: #bd5c41; transform: translateY(-2px); }
+.button-primary:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 4px; }
+
+/* ---------- sections ---------- */
+
+.app-section { padding: clamp(64px,8vw,130px) clamp(24px,5vw,80px); }
+.app-section-paper { background: var(--paper); color: var(--black); }
+.app-section-paper .section-heading { border-color: var(--line-dark); }
+.app-section-paper .section-heading span { color: var(--oxblood); }
+.app-section-paper .section-heading > p { color: #66635d; }
+.app-section-dark { background: var(--black); color: var(--white); }
+.app-section-dark .section-heading { border-color: var(--line-light); }
+.app-section-dark .section-heading > p { color: var(--muted); }
+.app-section .section-heading h2 { font-size: clamp(38px,5.5vw,80px); }
+
+.app-prose { max-width: 68ch; }
+.app-prose p { margin: 0 0 20px; font-size: clamp(14px,1.1vw,16px); line-height: 1.76; }
+.app-section-paper .app-prose p { color: #4b4843; }
+.app-pull { max-width: 30ch; margin-top: 34px !important; color: var(--oxblood); font-family: var(--serif); font-size: clamp(22px,2.7vw,38px); font-style: italic; line-height: 1.2; }
+
+/* ---------- feature list ---------- */
+
+.app-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 0 clamp(30px,4vw,64px); margin: clamp(46px,6vw,80px) 0 0; }
+.app-feature { padding: 26px 0; border-top: 1px solid var(--line-dark); }
+.app-features-dark .app-feature { border-top-color: var(--line-light); }
+.app-feature dt { margin-bottom: 9px; font-size: 15px; font-weight: 650; letter-spacing: -.015em; }
+.app-feature dd { margin: 0; max-width: 56ch; color: #57544e; font-size: 13px; line-height: 1.72; }
+.app-features-dark .app-feature dd { color: #a5a19a; }
+.app-feature code { background: rgba(5,5,5,.07); font: 400 12px var(--mono); padding: 1px 4px; }
+.app-features-dark .app-feature code { background: rgba(241,238,231,.1); }
+
+/* Inline key hint, smaller sibling of the hero keycaps. */
+.kbd { display: inline-block; min-width: 20px; padding: 1px 6px 2px; border: 1px solid rgba(5,5,5,.22); border-radius: 4px; background: rgba(5,5,5,.04); font: 500 12px var(--mono); text-align: center; }
+.app-features-dark .kbd { border-color: rgba(241,238,231,.26); background: rgba(241,238,231,.07); }
+
+/* ---------- download ---------- */
+
+.download-card { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: clamp(40px,5vw,64px); padding: clamp(24px,3vw,38px); border: 1px solid var(--line-dark); background: rgba(255,255,255,.4); }
+.download-head { display: grid; gap: 7px; }
+.download-head b { font-size: clamp(20px,2.2vw,28px); letter-spacing: -.03em; }
+.download-head span { color: #6c6962; font: 500 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+
+.app-warning { padding-left: clamp(18px,2.4vw,28px); border-left: 2px solid var(--oxblood); }
+.app-warning h3 { margin: 0 0 14px; font-family: var(--serif); font-size: clamp(18px,2vw,24px); font-weight: 500; font-style: italic; }
+.app-warning b { font-weight: 650; }
+
+/* ---------- limits ---------- */
+
+.app-limits { max-width: 68ch; margin: clamp(40px,5vw,70px) 0 0; padding: 0; list-style: none; }
+.app-limits li { padding: 15px 0 15px 26px; border-bottom: 1px solid var(--line-light); color: #a5a19a; font-size: 13px; line-height: 1.7; position: relative; }
+.app-limits li::before { content: "—"; position: absolute; left: 0; color: var(--rust-soft); }
+.app-limits li:first-child { border-top: 1px solid var(--line-light); }
+.app-limits b { color: var(--white); font-weight: 600; }
+
+.app-back { margin: clamp(44px,5vw,70px) 0 0; font: 500 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+.app-back a { color: var(--rust-soft); }
+.app-back a:hover { color: var(--white); }
+
+@media (max-width: 800px) {
+  .app-page main { padding-top: 68px; }
+  .app-features { grid-template-columns: 1fr; }
+  .download-card { flex-direction: column; align-items: stretch; }
+  .download-card .button-primary { text-align: center; }
+}
+
+@media (max-width: 540px) {
+  .app-hero { padding-inline: 17px; }
+  .app-section { padding-inline: 17px; }
+  .keycap { min-width: 72px; padding: 12px 14px 10px; }
+  .app-cta { gap: 14px; }
+  .button-primary { width: 100%; text-align: center; }
+}

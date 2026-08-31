@@ -173,6 +173,11 @@ img { display: block; max-width: 100%; }
 .project div > p { max-width: 630px; margin: 0; color: rgba(241,238,231,.8); font-size: 12px; line-height: 1.55; }
 .project > a { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(241,238,231,.45); border-radius: 50%; transition: .2s; }
 .project:hover > a { background: var(--white); color: var(--oxblood); }
+/* The one project that's actually downloadable gets a little more presence. */
+.project-featured > span { color: var(--white); }
+.project-featured small { color: var(--white); }
+.project-featured h3 { font-size: clamp(30px,4.2vw,62px); }
+.project-featured > a { border-color: var(--white); }
 
 .notes-section { background: var(--paper); color: var(--black); }
 .notes-section .section-heading { border-color: var(--line-dark); }
