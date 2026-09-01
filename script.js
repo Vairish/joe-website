@@ -80,35 +80,87 @@ const empty = message => {
 
 /* ---------- photography ---------- */
 
-/* Pages are filled by area, not by count.
+/* Pages are filled by actually packing them, not by counting area.
  *
- * The grid is 6 units across and 3 rows deep — 18 units. A landscape or
- * portrait photo costs 2 units, a square one costs 4. So a page normally
- * holds 9 photos, and 8 when one of them is square. Chunking by count
- * instead would make pages with a square taller than the rest, and the
- * whole gallery would jump as you paged through it. */
-const PAGE_UNITS = 18;
-const UNIT_COST = { landscape: 2, portrait: 2, square: 4 };
+ * The grid is 6 columns by 3 rows. A landscape tile is 2x1, a portrait 1x2,
+ * a square 2x2. Counting units and stopping at 18 is NOT enough: whether 18
+ * units fit in 18 cells depends on the order the shapes arrive in. Six
+ * landscapes fill rows 1-2 exactly, and the next portrait then needs two
+ * rows with only one left — so it spills into a fourth row and that page
+ * becomes taller than the others.
+ *
+ * So this mirrors CSS grid's own dense first-fit placement and closes the
+ * page when the next photo genuinely won't fit. Pages hold 8 or 9 photos
+ * instead of always 9, and every page is exactly 3 rows. */
+const GRID_COLS = 6;
+const GRID_ROWS = 3;
+const SPAN = { landscape: [2, 1], portrait: [1, 2], square: [2, 2] };
 
 // How many photos load eagerly before the rest wait to be scrolled to.
 const EAGER_COUNT = 9;
 
+const free = (grid, row, col, w, h) => {
+  if (col + w > GRID_COLS || row + h > GRID_ROWS) return false;
+  for (let r = row; r < row + h; r++) {
+    for (let c = col; c < col + w; c++) if (grid[r]?.[c]) return false;
+  }
+  return true;
+};
+
+const occupy = (grid, row, col, w, h) => {
+  for (let r = row; r < row + h; r++) {
+    grid[r] = grid[r] || [];
+    for (let c = col; c < col + w; c++) grid[r][c] = true;
+  }
+};
+
+// Same scan order CSS grid uses for `grid-auto-flow: dense`, so the browser
+// reproduces exactly the placement worked out here.
+const tryPlace = (grid, [w, h]) => {
+  for (let r = 0; r < GRID_ROWS; r++) {
+    for (let c = 0; c < GRID_COLS; c++) {
+      if (free(grid, r, c, w, h)) { occupy(grid, r, c, w, h); return true; }
+    }
+  }
+  return false;
+};
+
+/**
+ * Fills each page by repeatedly taking the EARLIEST remaining photo that
+ * still fits. Order is preserved wherever possible; a photo is only skipped
+ * when it genuinely cannot fit the space left, and it goes to the front of
+ * the next page rather than to the back of the queue — so nothing drifts far.
+ *
+ * This is what lets pages fill completely. Portraits are 1x2, so they want to
+ * come in pairs; an odd one leaves a 1x2 hole that nothing else can fill, and
+ * the look-ahead pulls a later portrait forward to close it.
+ */
 function paginate(photos) {
   const pages = [];
-  let page = [];
-  let units = 0;
+  const queue = [...photos];
 
-  for (const photo of photos) {
-    const cost = UNIT_COST[photo.shape] || 2;
-    if (units + cost > PAGE_UNITS && page.length) {
-      pages.push(page);
-      page = [];
-      units = 0;
+  while (queue.length) {
+    const grid = [];
+    const page = [];
+
+    for (;;) {
+      let placed = false;
+      for (let i = 0; i < queue.length; i++) {
+        const span = SPAN[queue[i].shape] || SPAN.landscape;
+        if (tryPlace(grid, span)) {
+          page.push(queue.splice(i, 1)[0]);
+          placed = true;
+          break;
+        }
+      }
+      if (!placed) break;
     }
-    page.push(photo);
-    units += cost;
+
+    // Any shape fits an empty grid, so this can't happen — but an empty page
+    // here would loop forever, so bail rather than hang the browser.
+    if (!page.length) break;
+    pages.push(page);
   }
-  if (page.length) pages.push(page);
   return pages;
 }
 

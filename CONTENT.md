@@ -93,18 +93,33 @@ Pages scroll sideways with arrows underneath — dots up to 8 pages, then a
 `3 / 23` counter, since a dot per page stops being useful past that.
 
 Paging works at every screen size. Only the grid's shape changes, so page
-count and photo order are identical on a phone and a monitor:
+count is identical on a phone and a monitor:
 
-| Screen | Grid | Page height |
-|---|---|---|
-| Desktop, 801px+ | 6 across × 3 down | ~0.9 screens |
-| Tablet, ≤800px | 4 × 5 | ~1.0 |
-| Large phone, ≤700px | 3 × 7 | ~1.4 |
-| Phone, ≤480px | 2 × 9 | ~2.3 |
+| Screen | Grid |
+|---|---|
+| Desktop, 801px+ | 6 across × 3 down |
+| Tablet and large phone, ≤800px | 4 × 5 |
+| Phone, ≤480px | 2 × 9 |
 
-All four hold 18 units. The column counts were picked by testing which ones
-tile without stranding photos into an extra row — 2 and 6 tile perfectly, 3
-and 4 leave a few empty cells but stay a consistent height.
+**Column counts must stay even.** A landscape tile spans 2 columns, so in an
+odd-column grid only one fits per row and the spare column is wasted — a page
+of nine landscapes needed 9 rows at 3 columns while other pages needed 7,
+which is the uneven-height problem this scheme exists to prevent.
+
+### Order can shift by a place or two
+
+Pages are filled by actually packing them. Counting area isn't enough: whether
+18 units fit in 18 cells depends on the order the shapes arrive in. Six
+landscapes fill rows 1–2 exactly, and a portrait then needs two rows with one
+left.
+
+So when the next photo won't fit the space remaining, the build takes the
+earliest one that does, and the skipped photo goes to the front of the next
+page. Portraits are 1×2 and want to come in pairs; an odd one leaves a 1×2
+hole nothing else can fill, and this closes it.
+
+The effect is small — currently 5 of 48 photos sit out of numbered order, none
+by more than 3 places — and it's what keeps every page completely full.
 
 Each photo's shape decides its tile:
 

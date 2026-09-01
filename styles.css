@@ -352,16 +352,15 @@ footer a { justify-self: end; }
 
 /* Gallery column count by width. A page is always 18 units, so only its
    shape changes — page count, photo order and the controls stay identical
-   everywhere. These come last so they win, ordered widest to narrowest so
-   the narrowest applies last.
+   everywhere. These come last so they win.
      >= 801   6 x 3
      <= 800   4 x 5
-     <= 700   3 x 7
-     <= 480   2 x 9   */
-@media (max-width: 700px) {
-  .gallery-page { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, minmax(105px, 28.5vw)); grid-auto-rows: minmax(105px, 28.5vw); }
-}
-
+     <= 480   2 x 9
+   Column counts are all EVEN on purpose. A landscape tile spans 2 columns,
+   so in an odd-column grid only one fits per row and the spare column is
+   unusable — a page of nine landscapes needed nine rows at 3 columns while
+   the rest needed seven, which is exactly the uneven-height problem this
+   whole scheme exists to avoid. */
 @media (max-width: 480px) {
   .gallery-page { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(9, minmax(100px, 44vw)); grid-auto-rows: minmax(100px, 44vw); gap: 8px; }
 }

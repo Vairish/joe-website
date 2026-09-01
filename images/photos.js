@@ -316,13 +316,13 @@ window.PHOTOS = [
     "full": "images/36 - Person - Peoples Park-full.webp"
   },
   {
-    "title": "Resevoir In The Mist",
-    "subtitle": "Roundwood",
-    "width": 3120,
-    "height": 2080,
-    "shape": "landscape",
-    "grid": "images/37 - Resevoir In The Mist - Roundwood-grid.webp",
-    "full": "images/37 - Resevoir In The Mist - Roundwood-full.webp"
+    "title": "Moonlit Solitude",
+    "subtitle": "Dun Laoghaire",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/37 - Moonlit Solitude - Dun Laoghaire-grid.webp",
+    "full": "images/37 - Moonlit Solitude - Dun Laoghaire-full.webp"
   },
   {
     "title": "Dragonflying",
@@ -350,5 +350,86 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/40 - When your Fringe Is Flawless But Your Table Manners Aren't. - Kilruddery Estate-grid.webp",
     "full": "images/40 - When your Fringe Is Flawless But Your Table Manners Aren't. - Kilruddery Estate-full.webp"
+  },
+  {
+    "title": "Atlantic Fury",
+    "subtitle": "The 40 Foot",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/41 - Atlantic Fury - The 40 Foot-grid.webp",
+    "full": "images/41 - Atlantic Fury - The 40 Foot-full.webp"
+  },
+  {
+    "title": "In Full Bloom",
+    "subtitle": "Cabinteely Park",
+    "width": 3091,
+    "height": 2061,
+    "shape": "landscape",
+    "grid": "images/42 - In Full Bloom - Cabinteely Park-grid.webp",
+    "full": "images/42 - In Full Bloom - Cabinteely Park-full.webp"
+  },
+  {
+    "title": "Resevoir In The Mist",
+    "subtitle": "Roundwood",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/43 - Resevoir In The Mist - Roundwood-grid.webp",
+    "full": "images/43 - Resevoir In The Mist - Roundwood-full.webp"
+  },
+  {
+    "title": "Grace in Motion",
+    "subtitle": "Merrion Park",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/44 - Grace in Motion - Merrion Park-grid.webp",
+    "full": "images/44 - Grace in Motion - Merrion Park-full.webp"
+  },
+  {
+    "title": "Emerald Watch",
+    "subtitle": "Dublin Zoo",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/45 - Emerald Watch - Dublin Zoo-grid.webp",
+    "full": "images/45 - Emerald Watch - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Seapoint at Dusk",
+    "subtitle": "Seapoint",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/46 - Seapoint at Dusk - Seapoint-grid.webp",
+    "full": "images/46 - Seapoint at Dusk - Seapoint-full.webp"
+  },
+  {
+    "title": "Autumn Dash",
+    "subtitle": "Botanical Gardens",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/47 - Autumn Dash - Botanical Gardens-grid.webp",
+    "full": "images/47 - Autumn Dash - Botanical Gardens-full.webp"
+  },
+  {
+    "title": "Golden Moonrise",
+    "subtitle": "Dun Laoghaire",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/48 - Golden Moonrise - Dun Laoghaire-grid.webp",
+    "full": "images/48 - Golden Moonrise - Dun Laoghaire-full.webp"
+  },
+  {
+    "title": "Framed by Moonlight",
+    "subtitle": "My Back Garden",
+    "width": 6240,
+    "height": 4160,
+    "shape": "landscape",
+    "grid": "images/49 - Framed by Moonlight - My Back Garden-grid.webp",
+    "full": "images/49 - Framed by Moonlight - My Back Garden-full.webp"
   }
 ];
