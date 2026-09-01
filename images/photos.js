@@ -398,12 +398,12 @@ window.PHOTOS = [
   },
   {
     "title": "Poolbeg Your Pardon",
-    "subtitle": "Dun Laoghaire West Pier",
+    "subtitle": "Dun Laoghaire Pier",
     "width": 2576,
     "height": 3864,
     "shape": "portrait",
-    "grid": "images/46 - Poolbeg Your Pardon - Dun Laoghaire West Pier-grid.webp",
-    "full": "images/46 - Poolbeg Your Pardon - Dun Laoghaire West Pier-full.webp"
+    "grid": "images/46 - Poolbeg Your Pardon - Dun Laoghaire Pier-grid.webp",
+    "full": "images/46 - Poolbeg Your Pardon - Dun Laoghaire Pier-full.webp"
   },
   {
     "title": "Autumn Dash",
