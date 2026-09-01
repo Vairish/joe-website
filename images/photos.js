@@ -658,22 +658,22 @@ window.PHOTOS = [
     "full": "images/74 - Lunch With A View - Dublin Zoo-full.webp"
   },
   {
-    "title": "Chasing the Light",
-    "subtitle": "Killiney Hill",
-    "width": 3000,
-    "height": 2000,
-    "shape": "landscape",
-    "grid": "images/75 - Chasing the Light - Killiney Hill-grid.webp",
-    "full": "images/75 - Chasing the Light - Killiney Hill-full.webp"
+    "title": "By The Firelight",
+    "subtitle": "St Fintans Park",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/75 - By The Firelight - St Fintans Park-grid.webp",
+    "full": "images/75 - By The Firelight - St Fintans Park-full.webp"
   },
   {
-    "title": "Queen Of The Jungle",
-    "subtitle": "Dublin Zoo",
-    "width": 6000,
-    "height": 4000,
-    "shape": "landscape",
-    "grid": "images/76 - Queen Of The Jungle - Dublin Zoo-grid.webp",
-    "full": "images/76 - Queen Of The Jungle - Dublin Zoo-full.webp"
+    "title": "On The Wing At Poolbeg",
+    "subtitle": "Dun Laoghaire",
+    "width": 1023,
+    "height": 1537,
+    "shape": "portrait",
+    "grid": "images/76 - On The Wing At Poolbeg - Dun Laoghaire-grid.webp",
+    "full": "images/76 - On The Wing At Poolbeg - Dun Laoghaire-full.webp"
   },
   {
     "title": "Lighting Up The Night",
@@ -694,12 +694,30 @@ window.PHOTOS = [
     "full": "images/78 - A Quiet Moment Of Reflection - Dalkey-full.webp"
   },
   {
-    "title": "By The Firelight",
-    "subtitle": "St Fintans Park",
-    "width": 2080,
-    "height": 3120,
-    "shape": "portrait",
-    "grid": "images/80 - By The Firelight - St Fintans Park-grid.webp",
-    "full": "images/80 - By The Firelight - St Fintans Park-full.webp"
+    "title": "Queen Of The Jungle",
+    "subtitle": "Dublin Zoo",
+    "width": 6000,
+    "height": 4000,
+    "shape": "landscape",
+    "grid": "images/79 - Queen Of The Jungle - Dublin Zoo-grid.webp",
+    "full": "images/79 - Queen Of The Jungle - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Chasing the Light",
+    "subtitle": "Killiney Hill",
+    "width": 3000,
+    "height": 2000,
+    "shape": "landscape",
+    "grid": "images/80 - Chasing the Light - Killiney Hill-grid.webp",
+    "full": "images/80 - Chasing the Light - Killiney Hill-full.webp"
+  },
+  {
+    "title": "Robin",
+    "subtitle": "Roundwood",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/81 - Robin - Roundwood-grid.webp",
+    "full": "images/81 - Robin - Roundwood-full.webp"
   }
 ];
