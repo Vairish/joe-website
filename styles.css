@@ -134,8 +134,16 @@ img { display: block; max-width: 100%; }
 .gallery-dot.active { width: 22px; border-radius: 4px; background: var(--oxblood); }
 .gallery-dot:focus-visible { outline: 2px solid var(--oxblood); outline-offset: 3px; }
 .gallery-count { min-width: 62px; justify-content: center; color: #6c6962; font: 500 10px var(--mono); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
-.photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: transform .7s cubic-bezier(.2,.72,.2,1), filter .4s; }
+.photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: transform .7s cubic-bezier(.2,.72,.2,1), filter .5s ease; }
 .photo:hover img { transform: scale(1.025); filter: grayscale(.1); }
+
+/* Touch devices have no hover, so scroll position stands in for the cursor:
+   whichever row is passing through the middle of the screen comes into
+   colour. script.js sets .in-band from an IntersectionObserver. Scoped to
+   (hover: none) so a mouse still drives this from hover alone. */
+@media (hover: none) {
+  .photo.in-band img { filter: grayscale(.1); }
+}
 .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.72), transparent 38%); }
 .photo > span { position: absolute; z-index: 2; left: 20px; right: 20px; bottom: 18px; display: flex; justify-content: space-between; align-items: end; color: var(--white); text-align: left; }
 .photo b { font-size: 13px; }

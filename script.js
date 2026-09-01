@@ -135,27 +135,32 @@ const tryPlace = (grid, [w, h]) => {
  * come in pairs; an odd one leaves a 1x2 hole that nothing else can fill, and
  * the look-ahead pulls a later portrait forward to close it.
  */
+/** Takes photos off the queue until nothing more fits on a page. */
+function fillPage(queue) {
+  const grid = [];
+  const page = [];
+
+  for (;;) {
+    let placed = false;
+    for (let i = 0; i < queue.length; i++) {
+      const span = SPAN[queue[i].shape] || SPAN.landscape;
+      if (tryPlace(grid, span)) {
+        page.push(queue.splice(i, 1)[0]);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed) break;
+  }
+  return page;
+}
+
 function paginate(photos) {
-  const pages = [];
   const queue = [...photos];
+  const pages = [];
 
   while (queue.length) {
-    const grid = [];
-    const page = [];
-
-    for (;;) {
-      let placed = false;
-      for (let i = 0; i < queue.length; i++) {
-        const span = SPAN[queue[i].shape] || SPAN.landscape;
-        if (tryPlace(grid, span)) {
-          page.push(queue.splice(i, 1)[0]);
-          placed = true;
-          break;
-        }
-      }
-      if (!placed) break;
-    }
-
+    const page = fillPage(queue);
     // Any shape fits an empty grid, so this can't happen — but an empty page
     // here would loop forever, so bail rather than hang the browser.
     if (!page.length) break;
@@ -217,8 +222,28 @@ if (photoGrid) {
     });
     photoGrid.append(track);
 
+    watchCentreBand(track);
     if (pageCount > 1) buildGalleryNav(photoGrid, track, pageCount);
   }
+}
+
+/**
+ * Touch devices get no hover, so the row crossing the middle of the screen
+ * comes into colour instead — scroll position doing the cursor's job.
+ *
+ * rootMargin clips the observer's view to a thin band across the centre, so
+ * only tiles actually passing through it qualify. Tiles on horizontally
+ * scrolled-out pages never intersect, so they cost nothing.
+ */
+function watchCentreBand(track) {
+  if (!matchMedia('(hover: none)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const band = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('in-band', entry.isIntersecting));
+  }, { rootMargin: '-42% 0px -42%', threshold: 0 });
+
+  $$('.photo', track).forEach(tile => band.observe(tile));
 }
 
 function currentPageOf(track) {
