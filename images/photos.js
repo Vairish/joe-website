@@ -568,6 +568,15 @@ window.PHOTOS = [
     "full": "images/64 - Colour On The Water - Botanical Gardens-full.webp"
   },
   {
+    "title": "Eyes Of The Wild",
+    "subtitle": "My Back Garden",
+    "width": 1560,
+    "height": 1040,
+    "shape": "landscape",
+    "grid": "images/65 - Eyes Of The Wild - My Back Garden-grid.webp",
+    "full": "images/65 - Eyes Of The Wild - My Back Garden-full.webp"
+  },
+  {
     "title": "Glendalough In Green",
     "subtitle": "Gelndalough",
     "width": 3120,
@@ -658,6 +667,33 @@ window.PHOTOS = [
     "full": "images/75 - Chasing the Light - Killiney Hill-full.webp"
   },
   {
+    "title": "Queen Of The Jungle",
+    "subtitle": "Dublin Zoo",
+    "width": 6000,
+    "height": 4000,
+    "shape": "landscape",
+    "grid": "images/76 - Queen Of The Jungle - Dublin Zoo-grid.webp",
+    "full": "images/76 - Queen Of The Jungle - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Lighting Up The Night",
+    "subtitle": "Dun Laoghaire Town Hall",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/77 - Lighting Up The Night - Dun Laoghaire Town Hall-grid.webp",
+    "full": "images/77 - Lighting Up The Night - Dun Laoghaire Town Hall-full.webp"
+  },
+  {
+    "title": "A Quiet Moment Of Reflection",
+    "subtitle": "Dalkey",
+    "width": 1402,
+    "height": 1122,
+    "shape": "landscape",
+    "grid": "images/78 - A Quiet Moment Of Reflection - Dalkey-grid.webp",
+    "full": "images/78 - A Quiet Moment Of Reflection - Dalkey-full.webp"
+  },
+  {
     "title": "By The Firelight",
     "subtitle": "St Fintans Park",
     "width": 2080,
@@ -665,14 +701,5 @@ window.PHOTOS = [
     "shape": "portrait",
     "grid": "images/80 - By The Firelight - St Fintans Park-grid.webp",
     "full": "images/80 - By The Firelight - St Fintans Park-full.webp"
-  },
-  {
-    "title": "65- Eyes Of The Wild",
-    "subtitle": "My Back Garden",
-    "width": 1560,
-    "height": 1040,
-    "shape": "landscape",
-    "grid": "images/65- Eyes Of The Wild - My Back Garden-grid.webp",
-    "full": "images/65- Eyes Of The Wild - My Back Garden-full.webp"
   }
 ];
