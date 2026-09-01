@@ -397,13 +397,13 @@ window.PHOTOS = [
     "full": "images/45 - Emerald Watch - Dublin Zoo-full.webp"
   },
   {
-    "title": "Seapoint at Dusk",
-    "subtitle": "Seapoint",
-    "width": 3120,
-    "height": 2080,
-    "shape": "landscape",
-    "grid": "images/46 - Seapoint at Dusk - Seapoint-grid.webp",
-    "full": "images/46 - Seapoint at Dusk - Seapoint-full.webp"
+    "title": "Poolbeg Your Pardon",
+    "subtitle": "Dun Laoghaire West Pier",
+    "width": 2576,
+    "height": 3864,
+    "shape": "portrait",
+    "grid": "images/46 - Poolbeg Your Pardon - Dun Laoghaire West Pier-grid.webp",
+    "full": "images/46 - Poolbeg Your Pardon - Dun Laoghaire West Pier-full.webp"
   },
   {
     "title": "Autumn Dash",
@@ -431,5 +431,248 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/49 - Framed by Moonlight - My Back Garden-grid.webp",
     "full": "images/49 - Framed by Moonlight - My Back Garden-full.webp"
+  },
+  {
+    "title": "Seapoint at Dusk",
+    "subtitle": "Seapoint",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/50 - Seapoint at Dusk - Seapoint-grid.webp",
+    "full": "images/50 - Seapoint at Dusk - Seapoint-full.webp"
+  },
+  {
+    "title": "Coming Into Land",
+    "subtitle": "Dun Laoghaire",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/51 - Coming Into Land - Dun Laoghaire-grid.webp",
+    "full": "images/51 - Coming Into Land - Dun Laoghaire-full.webp"
+  },
+  {
+    "title": "Caught Mid Snack",
+    "subtitle": "Botanical Gardens",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/52 - Caught Mid Snack - Botanical Gardens-grid.webp",
+    "full": "images/52 - Caught Mid Snack - Botanical Gardens-full.webp"
+  },
+  {
+    "title": "Quiet Majesty",
+    "subtitle": "Phoenix Park",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/53 - Quiet Majesty - Phoenix Park-grid.webp",
+    "full": "images/53 - Quiet Majesty - Phoenix Park-full.webp"
+  },
+  {
+    "title": "A Stately Ride",
+    "subtitle": "Pheonx Park",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/54 - A Stately Ride - Pheonx Park-grid.webp",
+    "full": "images/54 - A Stately Ride - Pheonx Park-full.webp"
+  },
+  {
+    "title": "Next Stop, Spring",
+    "subtitle": "Amsterdam",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/55 - Next Stop, Spring - Amsterdam-grid.webp",
+    "full": "images/55 - Next Stop, Spring - Amsterdam-full.webp"
+  },
+  {
+    "title": "Emerald Wings",
+    "subtitle": "Malahide Castle",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/56 - Emerald Wings - Malahide Castle-grid.webp",
+    "full": "images/56 - Emerald Wings - Malahide Castle-full.webp"
+  },
+  {
+    "title": "Coastal Calm",
+    "subtitle": "40 Foot",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/57 - Coastal Calm - 40 Foot-grid.webp",
+    "full": "images/57 - Coastal Calm - 40 Foot-full.webp"
+  },
+  {
+    "title": "Garden Elegance",
+    "subtitle": "Airfield Estate",
+    "width": 1023,
+    "height": 1537,
+    "shape": "portrait",
+    "grid": "images/58 - Garden Elegance - Airfield Estate-grid.webp",
+    "full": "images/58 - Garden Elegance - Airfield Estate-full.webp"
+  },
+  {
+    "title": "Fly Me To The Moon",
+    "subtitle": "Front Garden",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/59 - Fly Me To The Moon - Front Garden-grid.webp",
+    "full": "images/59 - Fly Me To The Moon - Front Garden-full.webp"
+  },
+  {
+    "title": "At The Water’s Edge",
+    "subtitle": "Dublin Zoo",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/60 - At The Water's Edge - Dublin Zoo-grid.webp",
+    "full": "images/60 - At The Water's Edge - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "A Gentle Greeting",
+    "subtitle": "Dublin Zoo",
+    "width": 6000,
+    "height": 4000,
+    "shape": "landscape",
+    "grid": "images/61 - A Gentle Greeting - Dublin Zoo-grid.webp",
+    "full": "images/61 - A Gentle Greeting - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Standing Tall",
+    "subtitle": "Dublin Zoo",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/62 - Standing Tall - Dublin Zoo-grid.webp",
+    "full": "images/62 - Standing Tall - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Dressed In Starlight",
+    "subtitle": "Dun Laoghaire Pier",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/63 - Dressed In Starlight - Dun Laoghaire Pier-grid.webp",
+    "full": "images/63 - Dressed In Starlight - Dun Laoghaire Pier-full.webp"
+  },
+  {
+    "title": "Colour On The Water",
+    "subtitle": "Botanical Gardens",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/64 - Colour On The Water - Botanical Gardens-grid.webp",
+    "full": "images/64 - Colour On The Water - Botanical Gardens-full.webp"
+  },
+  {
+    "title": "Glendalough In Green",
+    "subtitle": "Gelndalough",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/66 - Glendalough In Green - Gelndalough-grid.webp",
+    "full": "images/66 - Glendalough In Green - Gelndalough-full.webp"
+  },
+  {
+    "title": "Into The Green",
+    "subtitle": "Airfield Estate",
+    "width": 1023,
+    "height": 1537,
+    "shape": "portrait",
+    "grid": "images/67 - Into The Green - Airfield Estate-grid.webp",
+    "full": "images/67 - Into The Green - Airfield Estate-full.webp"
+  },
+  {
+    "title": "Flight Path",
+    "subtitle": "Goats Town",
+    "width": 6240,
+    "height": 4160,
+    "shape": "landscape",
+    "grid": "images/68 - Flight Path - Goats Town-grid.webp",
+    "full": "images/68 - Flight Path - Goats Town-full.webp"
+  },
+  {
+    "title": "Beacon In The Mist",
+    "subtitle": "Howth",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/69 - Beacon In The Mist - Howth-grid.webp",
+    "full": "images/69 - Beacon In The Mist - Howth-full.webp"
+  },
+  {
+    "title": "City In Reflection",
+    "subtitle": "Paris",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/70 - City In Reflection - Paris-grid.webp",
+    "full": "images/70 - City In Reflection - Paris-full.webp"
+  },
+  {
+    "title": "The Whole Troop",
+    "subtitle": "Dublin Zoo",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/71 - The Whole Troop - Dublin Zoo-grid.webp",
+    "full": "images/71 - The Whole Troop - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Regal Gaze",
+    "subtitle": "Dublin Zoon",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/72 - Regal Gaze - Dublin Zoon-grid.webp",
+    "full": "images/72 - Regal Gaze - Dublin Zoon-full.webp"
+  },
+  {
+    "title": "Telegraph Cairn",
+    "subtitle": "Dollymount Strand",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/73 - Telegraph Cairn - Dollymount Strand-grid.webp",
+    "full": "images/73 - Telegraph Cairn - Dollymount Strand-full.webp"
+  },
+  {
+    "title": "Lunch With A View",
+    "subtitle": "Dublin Zoo",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/74 - Lunch With A View - Dublin Zoo-grid.webp",
+    "full": "images/74 - Lunch With A View - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Chasing the Light",
+    "subtitle": "Killiney Hill",
+    "width": 3000,
+    "height": 2000,
+    "shape": "landscape",
+    "grid": "images/75 - Chasing the Light - Killiney Hill-grid.webp",
+    "full": "images/75 - Chasing the Light - Killiney Hill-full.webp"
+  },
+  {
+    "title": "By The Firelight",
+    "subtitle": "St Fintans Park",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/80 - By The Firelight - St Fintans Park-grid.webp",
+    "full": "images/80 - By The Firelight - St Fintans Park-full.webp"
+  },
+  {
+    "title": "65- Eyes Of The Wild",
+    "subtitle": "My Back Garden",
+    "width": 1560,
+    "height": 1040,
+    "shape": "landscape",
+    "grid": "images/65- Eyes Of The Wild - My Back Garden-grid.webp",
+    "full": "images/65- Eyes Of The Wild - My Back Garden-full.webp"
   }
 ];
