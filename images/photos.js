@@ -737,5 +737,23 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/83 - Mum In The Wind - Greystones-grid.webp",
     "full": "images/83 - Mum In The Wind - Greystones-full.webp"
+  },
+  {
+    "title": "Between Sea & Sky",
+    "subtitle": "Howth",
+    "width": 2080,
+    "height": 3120,
+    "shape": "portrait",
+    "grid": "images/84 - Between Sea and Sky - Howth-grid.webp",
+    "full": "images/84 - Between Sea and Sky - Howth-full.webp"
+  },
+  {
+    "title": "I See Ewe",
+    "subtitle": "Roundwood",
+    "width": 3864,
+    "height": 2576,
+    "shape": "landscape",
+    "grid": "images/85 - I See Ewe - Roundwood-grid.webp",
+    "full": "images/85 - I See Ewe - Roundwood-full.webp"
   }
 ];
