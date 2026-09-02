@@ -48,8 +48,8 @@ window.PHOTOS = [
   {
     "title": "Best Boys",
     "subtitle": "Blackrock",
-    "width": 3120,
-    "height": 2080,
+    "width": 2528,
+    "height": 1696,
     "shape": "landscape",
     "grid": "images/06 - Best Boys - Blackrock-grid.webp",
     "full": "images/06 - Best Boys - Blackrock-full.webp"
@@ -307,13 +307,13 @@ window.PHOTOS = [
     "full": "images/35 - Wildlights - Dublin Zoo-full.webp"
   },
   {
-    "title": "Person",
+    "title": "Music In The Park",
     "subtitle": "Peoples Park",
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/36 - Person - Peoples Park-grid.webp",
-    "full": "images/36 - Person - Peoples Park-full.webp"
+    "grid": "images/36 - Music In The Park - Peoples Park-grid.webp",
+    "full": "images/36 - Music In The Park - Peoples Park-full.webp"
   },
   {
     "title": "Moonlit Solitude",
@@ -712,12 +712,30 @@ window.PHOTOS = [
     "full": "images/80 - Chasing the Light - Killiney Hill-full.webp"
   },
   {
-    "title": "Robin",
+    "title": "Among The Moss And Muted Woodland",
     "subtitle": "Roundwood",
     "width": 3120,
     "height": 2080,
     "shape": "landscape",
-    "grid": "images/81 - Robin - Roundwood-grid.webp",
-    "full": "images/81 - Robin - Roundwood-full.webp"
+    "grid": "images/81 - Among The Moss And Muted Woodland - Roundwood-grid.webp",
+    "full": "images/81 - Among The Moss And Muted Woodland - Roundwood-full.webp"
+  },
+  {
+    "title": "A Roar Awakens",
+    "subtitle": "Dublin Zoo",
+    "width": 1402,
+    "height": 1122,
+    "shape": "landscape",
+    "grid": "images/82 - A Roar Awakens - Dublin Zoo-grid.webp",
+    "full": "images/82 - A Roar Awakens - Dublin Zoo-full.webp"
+  },
+  {
+    "title": "Mum In The Wind",
+    "subtitle": "Greystones",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/83 - Mum In The Wind - Greystones-grid.webp",
+    "full": "images/83 - Mum In The Wind - Greystones-full.webp"
   }
 ];
