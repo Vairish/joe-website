@@ -764,5 +764,14 @@ window.PHOTOS = [
     "shape": "portrait",
     "grid": "images/86 - Coming In For Landing - Killiney Hill-grid.webp",
     "full": "images/86 - Coming In For Landing - Killiney Hill-full.webp"
+  },
+  {
+    "title": "A Quiet Moment In A Place Full Of Stories",
+    "subtitle": "Henrieta House",
+    "width": 1537,
+    "height": 1023,
+    "shape": "landscape",
+    "grid": "images/87 - A Quiet Moment In A Place Full Of Stories - Henrieta House-grid.webp",
+    "full": "images/87 - A Quiet Moment In A Place Full Of Stories - Henrieta House-full.webp"
   }
 ];
