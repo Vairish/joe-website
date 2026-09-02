@@ -113,7 +113,12 @@ img { display: block; max-width: 100%; }
 /* Every page is exactly three rows, because pages are filled by area rather
    than by photo count (see paginate() in script.js). So the track's height
    never changes as you page through it. */
-.gallery-track { display: flex; align-items: stretch; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+/* The gap is structural, not decoration. Pages are exactly 100% wide, so
+   flush against each other any sub-pixel rounding in scrollLeft leaves a
+   1-2px sliver of the neighbouring page showing at the edge — visible as a
+   dark line wherever the current page has an empty row to expose it. A
+   gutter means that sliver is background instead of a photograph. */
+.gallery-track { display: flex; align-items: stretch; gap: clamp(24px,4vw,56px); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .gallery-track::-webkit-scrollbar { display: none; }
 .gallery-track:focus-visible { outline: 2px solid var(--oxblood); outline-offset: 6px; }
 .gallery-page { flex: 0 0 100%; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, minmax(120px, 14.2vw)); grid-auto-rows: minmax(120px, 14.2vw); grid-auto-flow: dense; gap: 12px; scroll-snap-align: start; align-content: start; }

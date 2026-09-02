@@ -246,9 +246,27 @@ function watchCentreBand(track) {
   $$('.photo', track).forEach(tile => band.observe(tile));
 }
 
+/* Page positions are measured, never calculated from index x width.
+ * Multiplying gives a fractional target that the browser rounds to whole
+ * device pixels, which is what left a sliver of the previous page showing.
+ * It also silently breaks the moment the track gains a gap. */
+function offsetOfPage(track, page) {
+  return page.getBoundingClientRect().left
+       - track.getBoundingClientRect().left
+       + track.scrollLeft;
+}
+
 function currentPageOf(track) {
-  const width = track.firstElementChild?.getBoundingClientRect().width || 0;
-  return width ? Math.round(track.scrollLeft / width) : 0;
+  const pages = [...track.children];
+  if (!pages.length) return 0;
+
+  let closest = 0;
+  let smallest = Infinity;
+  pages.forEach((page, index) => {
+    const distance = Math.abs(offsetOfPage(track, page) - track.scrollLeft);
+    if (distance < smallest) { smallest = distance; closest = index; }
+  });
+  return closest;
 }
 
 function buildGalleryNav(root, track, pageCount) {
@@ -286,13 +304,13 @@ function buildGalleryNav(root, track, pageCount) {
   nav.append(previous, dots, next);
   root.append(nav);
 
-  // Guarded: width is 0 before first layout, and 0/0 would give NaN.
-  const pageWidth = () => track.firstElementChild.getBoundingClientRect().width || 0;
   const currentPage = () => currentPageOf(track);
 
   function goToPage(page) {
     const target = Math.max(0, Math.min(pageCount - 1, page));
-    track.scrollTo({ left: target * pageWidth(), behavior: 'smooth' });
+    const destination = track.children[target];
+    if (!destination) return;
+    track.scrollTo({ left: offsetOfPage(track, destination), behavior: 'smooth' });
   }
 
   const syncNav = () => {
