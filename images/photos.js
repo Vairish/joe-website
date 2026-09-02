@@ -773,5 +773,14 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/87 - A Quiet Moment In A Place Full Of Stories - Henrieta House-grid.webp",
     "full": "images/87 - A Quiet Moment In A Place Full Of Stories - Henrieta House-full.webp"
+  },
+  {
+    "title": "Putting Away The Sun",
+    "subtitle": "Dun Laoghaire",
+    "width": 3120,
+    "height": 2080,
+    "shape": "landscape",
+    "grid": "images/88 - Putting Away The Sun - Dun Laoghaire-grid.webp",
+    "full": "images/88 - Putting Away The Sun - Dun Laoghaire-full.webp"
   }
 ];
