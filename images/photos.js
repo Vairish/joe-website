@@ -782,5 +782,14 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/88 - Putting Away The Sun - Dun Laoghaire-grid.webp",
     "full": "images/88 - Putting Away The Sun - Dun Laoghaire-full.webp"
+  },
+  {
+    "title": "She Chose Violins",
+    "subtitle": "Dun Laoghaire",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/89 - She Chose Violins - Dun Laoghaire-grid.webp",
+    "full": "images/89 - She Chose Violins - Dun Laoghaire-full.webp"
   }
 ];
