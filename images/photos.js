@@ -791,5 +791,32 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/89 - She Chose Violins - Dun Laoghaire-grid.webp",
     "full": "images/89 - She Chose Violins - Dun Laoghaire-full.webp"
+  },
+  {
+    "title": "Commanding The Quiet",
+    "subtitle": "Dublin",
+    "width": 1448,
+    "height": 1086,
+    "shape": "landscape",
+    "grid": "images/90 - Commanding The Quiet - Dublin-grid.webp",
+    "full": "images/90 - Commanding The Quiet - Dublin-full.webp"
+  },
+  {
+    "title": "Joy In Every Note",
+    "subtitle": "Florence",
+    "width": 1023,
+    "height": 1537,
+    "shape": "portrait",
+    "grid": "images/91 - Joy In Every Note - Florence-grid.webp",
+    "full": "images/91 - Joy In Every Note - Florence-full.webp"
+  },
+  {
+    "title": "A Rose Between Notes",
+    "subtitle": "Florence",
+    "width": 1023,
+    "height": 1537,
+    "shape": "portrait",
+    "grid": "images/92 - A Rose Between Notes - Florence-grid.webp",
+    "full": "images/92 - A Rose Between Notes - Florence-full.webp"
   }
 ];
