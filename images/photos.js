@@ -845,5 +845,32 @@ window.PHOTOS = [
     "shape": "landscape",
     "grid": "images/95 - The City Below - Dublin-grid.webp",
     "full": "images/95 - The City Below - Dublin-full.webp"
+  },
+  {
+    "title": "Golden Light Across Howth",
+    "subtitle": "Howth",
+    "width": 1672,
+    "height": 941,
+    "shape": "landscape",
+    "grid": "images/96 - Golden Light Across Howth - Howth-grid.webp",
+    "full": "images/96 - Golden Light Across Howth - Howth-full.webp"
+  },
+  {
+    "title": "Reflections Of Quiet Nature",
+    "subtitle": "Amsterdam",
+    "width": 1024,
+    "height": 1536,
+    "shape": "portrait",
+    "grid": "images/97 - Reflections Of Quiet Nature - Amsterdam-grid.webp",
+    "full": "images/97 - Reflections Of Quiet Nature - Amsterdam-full.webp"
+  },
+  {
+    "title": "Wings Of Tropical Wonder",
+    "subtitle": "Amsterdam",
+    "width": 1024,
+    "height": 1536,
+    "shape": "portrait",
+    "grid": "images/98 - Wings Of Tropical Wonder - Amsterdam-grid.webp",
+    "full": "images/98 - Wings Of Tropical Wonder - Amsterdam-full.webp"
   }
 ];
