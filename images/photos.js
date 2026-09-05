@@ -856,13 +856,31 @@ window.PHOTOS = [
     "full": "images/96 - Golden Light Across Howth - Howth-full.webp"
   },
   {
+    "title": "Too Tired To Care",
+    "subtitle": "My Back Garden",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/98 - Too Tired To Care - My Back Garden-grid.webp",
+    "full": "images/98 - Too Tired To Care - My Back Garden-full.webp"
+  },
+  {
+    "title": "Across the Daylight Moon",
+    "subtitle": "My Back Garden",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/99 - Across the Daylight Moon - My Back Garden-grid.webp",
+    "full": "images/99 - Across the Daylight Moon - My Back Garden-full.webp"
+  },
+  {
     "title": "Reflections Of Quiet Nature",
     "subtitle": "Amsterdam",
     "width": 1024,
     "height": 1536,
     "shape": "portrait",
-    "grid": "images/97 - Reflections Of Quiet Nature - Amsterdam-grid.webp",
-    "full": "images/97 - Reflections Of Quiet Nature - Amsterdam-full.webp"
+    "grid": "images/100 - Reflections Of Quiet Nature - Amsterdam-grid.webp",
+    "full": "images/100 - Reflections Of Quiet Nature - Amsterdam-full.webp"
   },
   {
     "title": "Wings Of Tropical Wonder",
@@ -870,7 +888,16 @@ window.PHOTOS = [
     "width": 1024,
     "height": 1536,
     "shape": "portrait",
-    "grid": "images/98 - Wings Of Tropical Wonder - Amsterdam-grid.webp",
-    "full": "images/98 - Wings Of Tropical Wonder - Amsterdam-full.webp"
+    "grid": "images/101 - Wings Of Tropical Wonder - Amsterdam-grid.webp",
+    "full": "images/101 - Wings Of Tropical Wonder - Amsterdam-full.webp"
+  },
+  {
+    "title": "97- Moonlight Over Quiet Waters",
+    "subtitle": "Dun Laoghaire",
+    "width": 1647,
+    "height": 955,
+    "shape": "landscape",
+    "grid": "images/97- Moonlight Over Quiet Waters - Dun Laoghaire-grid.webp",
+    "full": "images/97- Moonlight Over Quiet Waters - Dun Laoghaire-full.webp"
   }
 ];
