@@ -818,5 +818,32 @@ window.PHOTOS = [
     "shape": "portrait",
     "grid": "images/92 - A Rose Between Notes - Florence-grid.webp",
     "full": "images/92 - A Rose Between Notes - Florence-full.webp"
+  },
+  {
+    "title": "Colour After The Rain",
+    "subtitle": "Dublin",
+    "width": 1024,
+    "height": 1536,
+    "shape": "portrait",
+    "grid": "images/93 - Colour After The Rain - Dublin-grid.webp",
+    "full": "images/93 - Colour After The Rain - Dublin-full.webp"
+  },
+  {
+    "title": "A Silent Procession",
+    "subtitle": "Bushy Park",
+    "width": 2576,
+    "height": 3864,
+    "shape": "portrait",
+    "grid": "images/94 - A Silent Procession - Bushy Park-grid.webp",
+    "full": "images/94 - A Silent Procession - Bushy Park-full.webp"
+  },
+  {
+    "title": "The City Below",
+    "subtitle": "Dublin",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/95 - The City Below - Dublin-grid.webp",
+    "full": "images/95 - The City Below - Dublin-full.webp"
   }
 ];
