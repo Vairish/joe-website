@@ -156,8 +156,8 @@ window.PHOTOS = [
   {
     "title": "Straton Speciale",
     "subtitle": "Straton Watches",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/19 - Straton Speciale - Straton Watches-grid.webp",
     "full": "images/19 - Straton Speciale - Straton Watches-full.webp"
@@ -192,8 +192,8 @@ window.PHOTOS = [
   {
     "title": "Should I Sneak A Treat",
     "subtitle": "Newbridge Farm",
-    "width": 3864,
-    "height": 2576,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/23 - Should I Sneak A Treat - Newbridge Farm-grid.webp",
     "full": "images/23 - Should I Sneak A Treat - Newbridge Farm-full.webp"
@@ -201,8 +201,8 @@ window.PHOTOS = [
   {
     "title": "I Should Sneak A Treat",
     "subtitle": "Newbridge Farm",
-    "width": 3864,
-    "height": 2576,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/24 - I Should Sneak A Treat - Newbridge Farm-grid.webp",
     "full": "images/24 - I Should Sneak A Treat - Newbridge Farm-full.webp"
@@ -264,8 +264,8 @@ window.PHOTOS = [
   {
     "title": "Greatest Car Ever Made",
     "subtitle": "Paris",
-    "width": 2080,
-    "height": 3120,
+    "width": 1024,
+    "height": 1536,
     "shape": "portrait",
     "grid": "images/31 - Greatest Car Ever Made - Paris-grid.webp",
     "full": "images/31 - Greatest Car Ever Made - Paris-full.webp"
@@ -381,8 +381,8 @@ window.PHOTOS = [
   {
     "title": "Grace in Motion",
     "subtitle": "Merrion Park",
-    "width": 2080,
-    "height": 3120,
+    "width": 1024,
+    "height": 1536,
     "shape": "portrait",
     "grid": "images/44 - Grace in Motion - Merrion Park-grid.webp",
     "full": "images/44 - Grace in Motion - Merrion Park-full.webp"
@@ -390,8 +390,8 @@ window.PHOTOS = [
   {
     "title": "Emerald Watch",
     "subtitle": "Dublin Zoo",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/45 - Emerald Watch - Dublin Zoo-grid.webp",
     "full": "images/45 - Emerald Watch - Dublin Zoo-full.webp"
@@ -642,8 +642,8 @@ window.PHOTOS = [
   {
     "title": "Telegraph Cairn",
     "subtitle": "Dollymount Strand",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/73 - Telegraph Cairn - Dollymount Strand-grid.webp",
     "full": "images/73 - Telegraph Cairn - Dollymount Strand-full.webp"
@@ -890,6 +890,60 @@ window.PHOTOS = [
     "shape": "portrait",
     "grid": "images/101 - Wings Of Tropical Wonder - Amsterdam-grid.webp",
     "full": "images/101 - Wings Of Tropical Wonder - Amsterdam-full.webp"
+  },
+  {
+    "title": "Reflections Of A Quiet Past",
+    "subtitle": "Roundwood",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/102 - Reflections Of A Quiet Past - Roundwood-grid.webp",
+    "full": "images/102 - Reflections Of A Quiet Past - Roundwood-full.webp"
+  },
+  {
+    "title": "Time Woven In Style",
+    "subtitle": "Gucci",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/103 - Time Woven In Style - Gucci-grid.webp",
+    "full": "images/103 - Time Woven In Style - Gucci-full.webp"
+  },
+  {
+    "title": "Eyes On The Prize",
+    "subtitle": "Dun Laoghaire",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/104 - Eyes On The Prize - Dun Laoghaire-grid.webp",
+    "full": "images/104 - Eyes On The Prize - Dun Laoghaire-full.webp"
+  },
+  {
+    "title": "A Meeting Of Beaks",
+    "subtitle": "Amsterdam",
+    "width": 1536,
+    "height": 1024,
+    "shape": "landscape",
+    "grid": "images/105 - A Meeting Of Beaks - Amsterdam-grid.webp",
+    "full": "images/105 - A Meeting Of Beaks - Amsterdam-full.webp"
+  },
+  {
+    "title": "Paris Framed Ny Sunlight",
+    "subtitle": "Paris",
+    "width": 1024,
+    "height": 1536,
+    "shape": "portrait",
+    "grid": "images/110 - Paris Framed Ny Sunlight - Paris-grid.webp",
+    "full": "images/110 - Paris Framed Ny Sunlight - Paris-full.webp"
+  },
+  {
+    "title": "My Mother",
+    "subtitle": "Mount Usher",
+    "width": 1024,
+    "height": 1536,
+    "shape": "portrait",
+    "grid": "images/111 - My Mother - Mount Usher-grid.webp",
+    "full": "images/111 - My Mother - Mount Usher-full.webp"
   },
   {
     "title": "97- Moonlight Over Quiet Waters",
