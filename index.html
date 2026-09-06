@@ -130,13 +130,19 @@
 
   <footer><span>© <b id="year"></b> Joe Kiernan</span><span>Mostly harmless.</span><a href="#home">Back to top ↑</a></footer>
 
-  <dialog id="lightbox">
-    <button type="button" aria-label="Close photograph">×</button>
-    <img alt="">
-    <p></p>
+  <dialog id="lightbox" aria-label="Photograph viewer">
+    <div class="lightbox-frame">
+      <img alt="">
+    </div>
+    <div class="lightbox-bar">
+      <button class="lightbox-nav lightbox-prev" type="button" data-step="-1" aria-label="Previous photograph"><span aria-hidden="true">←</span></button>
+      <p class="lightbox-caption"><b id="lightbox-title"></b><small id="lightbox-count"></small></p>
+      <button class="lightbox-nav lightbox-next" type="button" data-step="1" aria-label="Next photograph"><span aria-hidden="true">→</span></button>
+    </div>
+    <button class="lightbox-close" type="button" aria-label="Close photograph"><span aria-hidden="true">×</span></button>
   </dialog>
   <!-- Each content folder carries its own listing. photos.js arrives with
-       the images; music and software are made by update-lists.mjs. -->
+       the images; the other two are made by update-lists.mjs. -->
   <script src="images/photos.js"></script>
   <script src="music/tracks.js"></script>
   <script src="notes/notes.js"></script>

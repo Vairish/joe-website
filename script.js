@@ -617,16 +617,67 @@ if (stack) {
   restack();
 }
 
-const lightbox = $('#lightbox');
-$$('.photo').forEach(button => button.addEventListener('click', () => {
-  const image = $('img', lightbox);
-  image.src = button.dataset.image;
-  image.alt = $('img', button).alt;
-  $('p', lightbox).textContent = button.dataset.caption;
-  lightbox.showModal();
-}));
+/* ---------- lightbox ---------- */
 
-$('button', lightbox).addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', event => {
-  if (event.target === lightbox) lightbox.close();
-});
+const lightbox = $('#lightbox');
+const tiles = $$('.photo');
+
+if (lightbox && tiles.length) {
+  const view = $('img', lightbox);
+  const titleOut = $('#lightbox-title');
+  const countOut = $('#lightbox-count');
+  const prevButton = $('.lightbox-prev', lightbox);
+  const nextButton = $('.lightbox-next', lightbox);
+
+  let at = -1;
+
+  // Fetch the neighbours quietly so stepping through feels instant rather
+  // than showing a blank frame while the next full-size copy downloads.
+  const preload = index => {
+    const tile = tiles[index];
+    if (tile) new Image().src = tile.dataset.image;
+  };
+
+  const show = index => {
+    if (index < 0 || index >= tiles.length) return;
+    at = index;
+    const tile = tiles[at];
+
+    view.src = tile.dataset.image;
+    view.alt = $('img', tile).alt;
+    titleOut.textContent = tile.dataset.caption;
+    countOut.textContent = `${at + 1} / ${tiles.length}`;
+    prevButton.disabled = at === 0;
+    nextButton.disabled = at === tiles.length - 1;
+
+    preload(at + 1);
+    preload(at - 1);
+  };
+
+  tiles.forEach((tile, index) => tile.addEventListener('click', () => {
+    show(index);
+    lightbox.showModal();
+  }));
+
+  prevButton.addEventListener('click', () => show(at - 1));
+  nextButton.addEventListener('click', () => show(at + 1));
+  $('.lightbox-close', lightbox).addEventListener('click', () => lightbox.close());
+
+  lightbox.addEventListener('click', event => {
+    // Only a click on the backdrop itself closes — not one that lands on the
+    // photograph, the caption or a control.
+    if (event.target === lightbox) lightbox.close();
+  });
+
+  lightbox.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') { event.preventDefault(); show(at - 1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); show(at + 1); }
+  });
+
+  // Stepping through photos can walk off the page the gallery is showing, so
+  // bring the gallery to wherever you finished before handing it back.
+  lightbox.addEventListener('close', () => {
+    const page = tiles[at]?.closest('.gallery-page');
+    page?.scrollIntoView({ inline: 'start', block: 'nearest' });
+  });
+}

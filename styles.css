@@ -284,11 +284,48 @@ footer { display: grid; grid-template-columns: 1fr auto 1fr; min-height: 70px; a
 footer span:nth-child(2) { color: var(--rust-soft); }
 footer a { justify-self: end; }
 
-#lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; padding: 0; border: 0; background: rgba(0,0,0,.97); color: var(--white); }
+#lightbox { width: 100vw; width: 100dvw; height: 100vh; height: 100dvh; max-width: none; max-height: none; padding: 0; border: 0; background: rgba(0,0,0,.97); color: var(--white); overflow: hidden; }
+#lightbox[open] { display: flex; flex-direction: column; }
 #lightbox::backdrop { background: #000; }
-#lightbox img { width: 100%; height: calc(100% - 55px); object-fit: contain; }
-#lightbox p { margin: 16px 24px; color: var(--muted); font: 400 9px var(--mono); }
-#lightbox button { position: fixed; z-index: 2; top: 20px; right: 20px; width: 44px; height: 44px; border: 1px solid #777; border-radius: 50%; background: #111; font-size: 22px; cursor: pointer; }
+
+/* The img fills the frame exactly and object-fit does the letterboxing.
+   Do NOT go back to max-height: 100% — a percentage height needs a parent
+   with a definite height, and this frame's comes from flex: 1, which counts
+   as indefinite. The constraint is then ignored and tall portraits render at
+   full intrinsic height, overflowing and getting clipped. */
+.lightbox-frame { flex: 1; min-height: 0; padding: 14px; }
+.lightbox-frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.lightbox-bar { flex: none; display: flex; align-items: center; gap: 18px; padding: 14px clamp(16px,3vw,28px); padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+.lightbox-caption { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 12px; margin: 0; }
+.lightbox-caption b { font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lightbox-caption small { flex: none; color: #7d7871; font: 500 10px var(--mono); font-variant-numeric: tabular-nums; }
+
+.lightbox-nav, .lightbox-close { display: grid; place-items: center; padding: 0; border: 1px solid #6b6b6b; border-radius: 50%; background: rgba(17,17,17,.72); color: var(--white); cursor: pointer; transition: .2s; }
+.lightbox-nav { flex: none; width: 46px; height: 46px; font-size: 15px; }
+.lightbox-close { position: fixed; z-index: 3; top: max(18px, env(safe-area-inset-top)); right: max(18px, env(safe-area-inset-right)); width: 44px; height: 44px; font-size: 20px; }
+.lightbox-nav:hover:not(:disabled), .lightbox-close:hover { border-color: var(--rust-soft); background: var(--rust); }
+.lightbox-nav:disabled { opacity: .28; cursor: default; }
+.lightbox-nav:focus-visible, .lightbox-close:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 3px; }
+
+/* Landscape (and every desktop window): arrows sit at the screen edges,
+   vertically centred, because horizontal space is what's plentiful and the
+   short viewport can't spare height for a control row. */
+@media (orientation: landscape) {
+  .lightbox-nav { position: fixed; z-index: 3; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; }
+  .lightbox-prev { left: max(18px, env(safe-area-inset-left)); }
+  .lightbox-next { right: max(18px, env(safe-area-inset-right)); }
+  .lightbox-frame { padding-inline: 86px; }
+  .lightbox-bar { justify-content: center; }
+  .lightbox-caption { flex: 0 1 auto; justify-content: center; }
+}
+
+/* Portrait: arrows drop into the bottom bar, within thumb reach, and the
+   frame gets the full width back. */
+@media (orientation: portrait) {
+  .lightbox-bar { gap: 14px; }
+  .lightbox-nav { width: 52px; height: 52px; }
+}
 
 @media (max-width: 800px) {
   .site-header { min-height: 68px; padding-inline: 20px; }
