@@ -65,9 +65,8 @@ img { display: block; max-width: 100%; }
 /* --grade belongs to the photo, --dim/--con to its depth in the pile */
 .card { --grade: grayscale(1); --dim: 1; --con: 1.08; }
 .card img { filter: var(--grade) brightness(var(--dim)) contrast(var(--con)); transition: filter .5s ease; }
-.p-moon img { object-position: 50% 52%; }
-.p-swans img { object-position: 48% 50%; }
-.p-swans { --grade: saturate(1.25); }
+.p-upside img { object-position: 47% 50%; }
+.p-henrietta img { object-position: 50% 50%; }
 
 /* slot = a position in the pile (depth: z-order, offset, dimming) */
 .slot-1 { z-index: 3; transform: translateY(var(--lift,0)) rotate(4.5deg); background: #eeeae2; box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.28); }
@@ -77,20 +76,33 @@ img { display: block; max-width: 100%; }
 .slot-2 { --dim: .84; --con: 1.16; }
 .slot-3 { --dim: .72; --con: 1.2; }
 
+/* No hover on touch, so the card on top of the pile carries its colour
+   permanently — tapping to shuffle then moves the colour with your choice,
+   which is the same reward hover gives a mouse. slot-1 already sets --dim
+   and --con to their undimmed values, so only the greyscale needs lifting. */
+@media (hover: none) {
+  .slot-1 { --grade: grayscale(0); }
+}
+
 .tape { position: absolute; z-index: 4; top: -13px; left: 50%; width: 44%; height: 26px; background: linear-gradient(90deg, rgba(189,174,134,.78), rgba(216,205,170,.88), rgba(184,168,127,.78)); box-shadow: 0 1px 2px rgba(0,0,0,.16); opacity: .9; }
 .p-self .tape { transform: translateX(-50%) rotate(2deg); }
-.p-moon .tape { left: 44%; width: 38%; transform: translateX(-50%) rotate(-3.5deg); }
-.p-swans .tape { left: 57%; width: 41%; transform: translateX(-50%) rotate(4.5deg); }
+.p-upside .tape { left: 44%; width: 38%; transform: translateX(-50%) rotate(-3.5deg); }
+.p-henrietta .tape { left: 57%; width: 41%; transform: translateX(-50%) rotate(4.5deg); }
 
 .card-hit { position: absolute; z-index: 5; inset: 0; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .slot-1 .card-hit { cursor: default; }
 .card-hit:focus-visible { outline: 2px solid var(--rust-soft); outline-offset: 4px; }
-.card:hover { --lift: -7px; }
+/* Hovering a card lifts it AND hands back its colour. It also cancels the
+   depth dimming, so a card from the back of the pile comes up to full
+   brightness rather than a murky version of itself. These beat the .slot-*
+   values on specificity (class + pseudo-class), which is what makes the
+   override work without !important. */
+.card:hover { --lift: -7px; --grade: grayscale(0); --dim: 1; --con: 1.08; }
 .slot-1:hover { --lift: -4px; }
 .polaroid figcaption { position: absolute; right: 11px; bottom: 2px; left: 11px; overflow: hidden; color: #17212b; font-family: "Marker Mark", "Segoe Script", "Bradley Hand", "Brush Script MT", cursive; font-size: clamp(15px, 2vw, 30px); font-synthesis: none; font-weight: 400; letter-spacing: .01em; line-height: 1.1; mix-blend-mode: multiply; opacity: .82; text-align: center; text-rendering: geometricPrecision; white-space: nowrap; }
 .p-self figcaption { transform: rotate(-1deg); }
-.p-moon figcaption { transform: rotate(1.2deg); }
-.p-swans figcaption { transform: rotate(-.7deg); }
+.p-upside figcaption { transform: rotate(1.2deg); }
+.p-henrietta figcaption { transform: rotate(-.7deg); }
 .scroll-cue { position: absolute; left: 50%; bottom: 30px; display: grid; place-items: center; width: 44px; height: 30px; margin-left: -22px; color: rgba(241,238,231,.62); filter: drop-shadow(0 1px 4px rgba(0,0,0,.6)); transition: color .3s; }
 .scroll-cue svg { width: 22px; height: 12px; }
 .scroll-cue:hover { color: var(--white); }
