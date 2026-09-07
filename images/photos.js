@@ -102,8 +102,8 @@ window.PHOTOS = [
   {
     "title": "Mama & Son",
     "subtitle": "Dublin Zoo",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/13 - Mama and Son - Dublin Zoo-grid.webp",
     "full": "images/13 - Mama and Son - Dublin Zoo-full.webp"
@@ -111,8 +111,8 @@ window.PHOTOS = [
   {
     "title": "Mama & Son",
     "subtitle": "Dublin Zoo",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/14 - Mama and Son - Dublin Zoo-grid.webp",
     "full": "images/14 - Mama and Son - Dublin Zoo-full.webp"
@@ -174,8 +174,8 @@ window.PHOTOS = [
   {
     "title": "The Jungle’s Smallest Lookout.",
     "subtitle": "Dublin Zoo",
-    "width": 3120,
-    "height": 2080,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/21 - The Jungle's Smallest Lookout. - Dublin Zoo-grid.webp",
     "full": "images/21 - The Jungle's Smallest Lookout. - Dublin Zoo-full.webp"
@@ -372,8 +372,8 @@ window.PHOTOS = [
   {
     "title": "Resevoir In The Mist",
     "subtitle": "Roundwood",
-    "width": 3120,
-    "height": 2080,
+    "width": 1672,
+    "height": 941,
     "shape": "landscape",
     "grid": "images/43 - Resevoir In The Mist - Roundwood-grid.webp",
     "full": "images/43 - Resevoir In The Mist - Roundwood-full.webp"
@@ -444,8 +444,8 @@ window.PHOTOS = [
   {
     "title": "Coming Into Land",
     "subtitle": "Dun Laoghaire",
-    "width": 3864,
-    "height": 2576,
+    "width": 1536,
+    "height": 1024,
     "shape": "landscape",
     "grid": "images/51 - Coming Into Land - Dun Laoghaire-grid.webp",
     "full": "images/51 - Coming Into Land - Dun Laoghaire-full.webp"
