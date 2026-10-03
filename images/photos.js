@@ -946,6 +946,15 @@ window.PHOTOS = [
     "full": "images/111 - My Mother - Mount Usher-full.webp"
   },
   {
+    "title": "A Moment In Time",
+    "subtitle": "Omega Speedmaster",
+    "width": 1920,
+    "height": 1080,
+    "shape": "landscape",
+    "grid": "images/112 - A Moment In Time - Omega Speedmaster-grid.webp",
+    "full": "images/112 - A Moment In Time - Omega Speedmaster-full.webp"
+  },
+  {
     "title": "97- Moonlight Over Quiet Waters",
     "subtitle": "Dun Laoghaire",
     "width": 1647,
